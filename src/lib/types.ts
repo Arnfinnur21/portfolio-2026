@@ -10,6 +10,8 @@ export interface Project {
 	href?: string;
 	repo?: string;
 	image?: string;
+	ribbon?: boolean;
+	ribbonText?: string;
 }
 
 export interface Experience {
