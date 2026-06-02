@@ -67,6 +67,7 @@ export const EXPERIENCES = {
 				"Figma",
 				"Webflow",
 			],
+			image: "/nemo_logo.svg",
 		},
 		{
 			company: "ELKO",
@@ -75,14 +76,16 @@ export const EXPERIENCES = {
 			description:
 				"Sá um tæknilega aðstoð, þjónustu við viðskiptavini og mikil samskipti við helstu flutningsaðila/birgja landsins. Aðstoðaði viðskiptavini með flóknar tæknivörur og vann í hröðu og krefjandi umhverfi.",
 			tags: ["Forysta", "Tækniþjónusta", "Þjónusta"],
+			image: "/Elko_Logo_2014.png",
 		},
 		{
 			company: "Takk Samskipti",
 			role: "Sölufulltrúi",
-			period: "2020 – 2021",
+			period: "2018 – 2021",
 			description:
 				"Þróaði sterka samskipta- og söluhæfileika í gegnum dagleg samskipti við viðskiptavini og markmiðadrifna sölu.",
 			tags: ["Samskipti", "Sala"],
+			image: "/takk_logo.png",
 		},
 	],
 
@@ -94,6 +97,7 @@ export const EXPERIENCES = {
 			description:
 				"Worked on real-world web solutions and internal tools for clients, focusing on frontend development, UI implementation, and modern web technologies. Collaborated in small teams and contributed to both development and design decisions.",
 			tags: ["React", "TypeScript", "Next.js", "UI/UX"],
+			image: "/nemo_logo.svg",
 		},
 		{
 			company: "ELKO",
@@ -102,14 +106,16 @@ export const EXPERIENCES = {
 			description:
 				"Handled technical troubleshooting, customer support, and daily shift operations in Iceland’s largest electronics retailer. Assisted customers with complex technical products while helping manage team operations in a fast-paced environment.",
 			tags: ["Leadership", "Technical Support", "Customer Service"],
+			image: "/Elko_Logo_2014.png",
 		},
 		{
 			company: "Charity Sales",
 			role: "Phone Sales Representative",
-			period: "2020 – 2021",
+			period: "2018 – 2021",
 			description:
 				"Developed strong communication and persuasion skills through high-volume customer interactions and sales-focused outreach.",
 			tags: ["Communication", "Sales"],
+			image: "/takk_logo.png",
 		},
 	],
 };

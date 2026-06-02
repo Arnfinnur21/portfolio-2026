@@ -1,26 +1,27 @@
 export interface NavLink {
-  label: string;
-  href: string;
+	label: string;
+	href: string;
 }
 
 export interface Project {
-  title: string;
-  description: string;
-  tags: string[];
-  href?: string;
-  repo?: string;
-  image?: string;
+	title: string;
+	description: string;
+	tags: string[];
+	href?: string;
+	repo?: string;
+	image?: string;
 }
 
 export interface Experience {
-  company: string;
-  role: string;
-  period: string;
-  description: string;
-  tags?: string[];
+	company: string;
+	role: string;
+	period: string;
+	description: string;
+	tags?: string[];
+	image: string;
 }
 
 export interface Skill {
-  category: string;
-  items: string[];
+	category: string;
+	items: string[];
 }

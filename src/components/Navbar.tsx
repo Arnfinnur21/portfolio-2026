@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { NAV_LINKS, HERO } from "@/lib/data";
 import { useLang, useSetLang } from "@/components/LangProvider";
 
@@ -36,9 +37,15 @@ export default function Navbar() {
 					</ul>
 					<button
 						onClick={() => setLang(lang === "ICE" ? "ENG" : "ICE")}
-						className="rounded-full border border-zinc-300 px-3 py-1 text-xs font-semibold text-zinc-600 transition hover:border-zinc-500 hover:text-zinc-900 dark:border-zinc-700 dark:text-zinc-400 dark:hover:border-zinc-400 dark:hover:text-zinc-50"
+						aria-label="Switch language"
 					>
-						{lang === "ICE" ? "EN" : "IS"}
+						<Image
+							src={lang === "ICE" ? "/usa_flag.png" : "/iceland_flag.png"}
+							alt={lang === "ICE" ? "English" : "Icelandic"}
+							width={28}
+							height={28}
+							className="rounded-full object-cover"
+						/>
 					</button>
 				</div>
 			</nav>

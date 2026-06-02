@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { EXPERIENCES } from "@/lib/data";
 import { useLang } from "../LangProvider";
-
+import Image from "next/image";
 export default function Experience() {
 	const ref = useRef(null);
 	const inView = useInView(ref, { once: true, margin: "-100px" });
@@ -37,9 +37,20 @@ export default function Experience() {
 								</h3>
 								<span className="text-sm text-zinc-500">{exp.period}</span>
 							</div>
-							<p className="mt-2 text-zinc-600 dark:text-zinc-400">
-								{exp.description}
-							</p>
+							<div className="flex flex-row justify-between gap-30">
+								<p className="mt-2 text-zinc-600 dark:text-zinc-400">
+									{exp.description}
+								</p>
+								{"image" in exp && exp.image && (
+									<Image
+										src={exp.image}
+										alt={"logo"}
+										width={80}
+										height={80}
+										className="shrink-0 object-contain"
+									/>
+								)}
+							</div>
 							{exp.tags && (
 								<div className="mt-3 flex flex-wrap gap-2">
 									{exp.tags.map((tag) => (
