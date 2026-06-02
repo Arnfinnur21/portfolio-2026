@@ -114,31 +114,43 @@ export const EXPERIENCES = {
 	],
 };
 
-export const PROJECTS = {
+export const PROJECTS: Record<string, Project[]> = {
 	ICE: [
 		{
 			title: "TypeWriter",
 			description:
-				"Ritgreiningarkerfi fyrir nemendur og kennara með áherslu á ritunargögn, framvindu og greiningu skjala.",
+				"Lokaverkefnið mitt fyrir BSc gráðuna mína í Tölvunarfræði.\n \n Ritgreiningarkerfi fyrir nemendur og kennara með áherslu á ritunargögn, framvindu og greiningu skjala.",
 			tags: ["React", "TypeScript", "MongoDB", "Next.js"],
 			href: "#",
-			repo: "",
+			repo: "https://skemman.is/handle/1946/52014",
+			ribbon: true,
+			ribbonText: "BSc"
 		},
 		{
-			title: "Ráðstefnuvefur",
+			title: "Ráðstefnuvefur NFS 2026",
 			description:
-				"Hannaði og þróaði nútímalegan ráðstefnuvef með CMS efnisstjórnun, responsive uppsetningu og sérsniðnum notendaviðmótum.",
+				"Static vefsíða fyrir Nordic Fertility Society ráðstefnuna 2026. \n \n Sá um uppsetningu, hýsingu, hönnun og umsjón á vefnum fyrir Senu. Setti upp CMS fyrir auðvelda uppsetningu og breytingu á efni fyrir kúnna.",
 			tags: ["Webflow", "UI/UX", "CMS"],
-			href: "#",
+			href: "https://nfs2026.is",
 			repo: "",
 		},
 		{
-			title: "AI YouTube Samantektir",
-			description:
-				"Vefforrit sem sækir texta úr YouTube myndböndum og býr til stuttar AI-knúnar samantektir.",
-			tags: ["Next.js", "OpenAI", "Tailwind CSS"],
-			href: "#",
-			repo: "",
+			title: "Hrein Snilld",
+			description: "Refactoraði síðuna yfir í Prismic CMS og hannaði auglýsingaefni fyrir markaðsherferðir.",
+			tags: ["Prismic CMS", "Davinci Resolve"],
+			href: "https://hreinsnilld.is"
+		},
+		{
+			title: "Hér & Nú",
+			description: "Sá um uppsetningu á rebranding síðu hjá auglýsingastofunni Hér & Nú. \n \n Mikið af samskiptum við hönnuði til að tryggja að síðan leit út alveg eins og þau vildu.",
+			tags: ["JS", "Prismic CMS", "Figma"],
+			href: "https://herognu.is",
+		},
+		{
+			title: "BBA // Fjeldco",
+			description: "Sá um ýmsar breytingar á heimasíðunni. \n \n Uppsetning á nýjum undirsíðum og breytingar á núverandi síðum",
+			tags: ["Webflow"],
+			href: ""
 		},
 	],
 
@@ -148,7 +160,7 @@ export const PROJECTS = {
 			description:
 				"A writing analytics platform built for students and teachers with features focused on writing statistics, progress tracking, and document analysis.",
 			tags: ["React", "TypeScript", "MongoDB", "Next.js"],
-			href: "#",
+			href: "https://skemman.is/handle/1946/52014",
 			repo: "",
 		},
 		{
@@ -156,16 +168,26 @@ export const PROJECTS = {
 			description:
 				"Designed and developed a modern conference website with CMS-driven content management, responsive layouts, and custom UI components.",
 			tags: ["Webflow", "UI/UX", "CMS"],
-			href: "#",
+			href: "https://nfs2026.is",
 			repo: "",
 		},
 		{
-			title: "AI YouTube Summarizer",
-			description:
-				"A web application that retrieves YouTube transcripts and generates concise AI-powered summaries using modern frontend technologies and OpenAI APIs.",
-			tags: ["Next.js", "OpenAI", "Tailwind CSS"],
-			href: "#",
-			repo: "",
+			title: "Hrein Snilld",
+			description: "Refactored the website to use Prismic CMS and designed promotional content for multiple marketing campaigns.",
+			tags: ["Prismic CMS", "Davinci Resolve"],
+			href: "https://hreinsnilld.is"
+		},
+		{
+			title: "Hér & Nú",
+			description: "Handled the setup for a rebranding website for the design studio Hér & Nú.",
+			tags: ["Prismic CMS", "JavaScript", "Figma"],
+			href: "https://herognu.is"
+		},
+		{
+			title: "BBA // Fjeldco",
+			description: "Handled various changes on their main website. \n \n Creation of new subpages and changes to existing ones",
+			tags: ["Webflow"],
+			href: ""
 		},
 	],
 };
