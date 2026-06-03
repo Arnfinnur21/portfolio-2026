@@ -2,7 +2,7 @@
 
 import { motion, useInView } from "framer-motion";
 import { HERO } from "@/lib/data";
-import { useLang } from "@/components/LangProvider";
+import { useLang } from "@/components/ui/LangProvider";
 import React from "react";
 
 export default function Hero() {

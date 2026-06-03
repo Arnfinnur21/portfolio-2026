@@ -3,7 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { CONTACT } from "@/lib/data";
-import { useLang } from "../LangProvider";
+import { useLang } from "../ui/LangProvider";
 
 export default function Contact() {
 	const ref = useRef(null);

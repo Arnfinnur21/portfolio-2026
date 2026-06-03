@@ -3,7 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { SKILLS } from "@/lib/data";
-import { useLang } from "../LangProvider";
+import { useLang } from "../ui/LangProvider";
 
 export default function Skills() {
 	const ref = useRef(null);

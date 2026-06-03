@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { ABOUT } from "@/lib/data";
-import { useLang } from "../LangProvider";
+import { useLang } from "../ui/LangProvider";
 
 export default function About() {
 	const ref = useRef(null);

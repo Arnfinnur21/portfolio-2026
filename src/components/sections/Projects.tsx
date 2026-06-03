@@ -3,8 +3,8 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { PROJECTS } from "@/lib/data";
-import { useLang } from "../LangProvider";
-import BorderGlow from '../BorderGlow';
+import { useLang } from "../ui/LangProvider";
+import Ferrofluid from "../ui/Ferrofluid";
 
 function toAbsoluteUrl(url: string) {
 	if (!url || url === "#") return url;
@@ -18,41 +18,47 @@ export default function Projects() {
 	const projects = PROJECTS[lang];
 
 	return (
-		<section id="projects" className="mx-auto max-w-5xl px-6 py-24">
+		<section id="projects" className="mx-auto py-24 w-screen">
 			<motion.div
 				ref={ref}
 				initial={{ opacity: 0, y: 40 }}
 				animate={inView ? { opacity: 1, y: 0 } : {}}
 				transition={{ duration: 0.5 }}
+				className="w-screen flex justify-center items-center flex-col"
 			>
 				<h2 className="mb-10 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
 					Projects
 				</h2>
-				<div className="grid gap-6 sm:grid-cols-2">
+				<div className="w-full">
 					{projects.map((project, i) => (
-						<BorderGlow
-							edgeSensitivity={30}
-							glowColor="40 80 80"
-							backgroundColor="#120F17"
-							borderRadius={10}
-							glowRadius={40}
-							glowIntensity={1}
-							coneSpread={25}
-							animated={false}
-							colors={['#c084fc', '#f472b6', '#38bdf8']}
+						<motion.div
+							key={i}
+							initial={{ opacity: 0, y: 20 }}
+							animate={inView ? { opacity: 1, y: 0 } : {}}
+							transition={{ delay: i * 0.1 + 0.2 }}
+							className="relative w-full overflow-hidden py-20 transition mask-image:radial-gradient(circle_at_center,black_80%,transparent_100%) grayscale hover:grayscale-0 duration-300"
 						>
-							<motion.div
-								key={i}
-								initial={{ opacity: 0, y: 20 }}
-								animate={inView ? { opacity: 1, y: 0 } : {}}
-								transition={{ delay: i * 0.1 + 0.2 }}
-								className="group relative overflow-hidden p-6 transition"
-							>
-								{project.ribbon && project.ribbonText && (
-									<div className="absolute right-[-28px] top-[18px] w-[110px] rotate-45 bg-indigo-500/90 py-[5px] text-center text-[10px] font-semibold tracking-wide text-white shadow-sm">
-										{project.ribbonText}
-									</div>
-								)}
+							{/* Full-width background */}
+							<div className="absolute inset-0 -z-10 w-screen left-1/2 opacity-50 hover:opacity-100 transition duration-300 -translate-x-1/2 mask-[linear-gradient(to_bottom,transparent,black_18%,black_82%,transparent)]">
+								{/* @ts-expect-error JS component */}
+								<Ferrofluid
+									colors={[project.colors[0], project.colors[1]]}
+									speed={0.05}
+									scale={4.5}
+									fluidity={0.15}
+									rimWidth={0.18}
+									sharpness={3.1}
+									glow={2.4}
+									flowDirection="down"
+									opacity={1}
+									mouseInteraction={false}
+									mouseStrength={0}
+									mouseRadius={0.05}
+									timeOffset={i * 42}
+								/>
+							</div>
+							{/* Centered content */}
+							<div className="mx-auto max-w-2xl px-6">
 								<h3 className="font-semibold text-zinc-900 dark:text-zinc-50">
 									{project.title}
 								</h3>
@@ -91,8 +97,8 @@ export default function Projects() {
 										</a>
 									)}
 								</div>
-							</motion.div>
-						</BorderGlow>
+							</div>
+						</motion.div>
 					))}
 				</div>
 			</motion.div>

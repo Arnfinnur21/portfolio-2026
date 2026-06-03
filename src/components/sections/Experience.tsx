@@ -3,7 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { EXPERIENCES } from "@/lib/data";
-import { useLang } from "../LangProvider";
+import { useLang } from "../ui/LangProvider";
 import Image from "next/image";
 export default function Experience() {
 	const ref = useRef(null);

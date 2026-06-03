@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { NAV_LINKS, HERO } from "@/lib/data";
-import { useLang, useSetLang } from "@/components/LangProvider";
+import { useLang, useSetLang } from "@/components/ui/LangProvider";
 
 export default function Navbar() {
 	const lang = useLang();
