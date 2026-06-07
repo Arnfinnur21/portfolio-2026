@@ -11,6 +11,7 @@ export interface Project {
 	repo?: string;
 	image?: string;
 	colors: string[];
+	logo: string;
 }
 
 export interface Experience {

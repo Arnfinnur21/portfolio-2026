@@ -66,7 +66,15 @@ const EXPERIENCE_TEXT = {
 			period: "2022 – Núverandi",
 			description:
 				"Komið að þróun á veflausnum og innri kerfum fyrir kúnna með áherslu á framenda, notendaviðmót og nútímalega vefþróun. Unnið í litlum teymum og tekið þátt í bæði þróunar- og hönnunarákvörðunum.",
-			tags: ["React", "JS/TS", "Next.js", "Prismic CMS", "UI/UX", "Figma", "Webflow"],
+			tags: [
+				"React",
+				"JS/TS",
+				"Next.js",
+				"Prismic CMS",
+				"UI/UX",
+				"Figma",
+				"Webflow",
+			],
 		},
 		{
 			role: "Þjónustufulltrúi & Vakstjóri",
@@ -109,8 +117,14 @@ const EXPERIENCE_TEXT = {
 };
 
 export const EXPERIENCES: Record<string, Experience[]> = {
-	ICE: EXPERIENCE_SHARED.map((shared, i) => ({ ...shared, ...EXPERIENCE_TEXT.ICE[i] })),
-	ENG: EXPERIENCE_SHARED.map((shared, i) => ({ ...shared, ...EXPERIENCE_TEXT.ENG[i] })),
+	ICE: EXPERIENCE_SHARED.map((shared, i) => ({
+		...shared,
+		...EXPERIENCE_TEXT.ICE[i],
+	})),
+	ENG: EXPERIENCE_SHARED.map((shared, i) => ({
+		...shared,
+		...EXPERIENCE_TEXT.ENG[i],
+	})),
 };
 
 // Shared fields that don't need translation
@@ -120,27 +134,32 @@ const PROJECT_SHARED = [
 		href: "",
 		tags: ["React", "TypeScript", "MongoDB", "Next.js"],
 		colors: ["#FFFFFF", "#FFFFFFF"],
+		logo: "/TW_logo.png",
 	},
 	{
 		href: "https://nfs2026.is",
 		repo: "",
 		tags: ["Webflow", "UI/UX", "CMS"],
 		colors: ["#FFFFFF", "#52ff00"],
+		logo: "/NFS_logo.png",
 	},
 	{
 		href: "https://hreinsnilld.is",
 		tags: ["Prismic CMS", "Davinci Resolve"],
 		colors: ["#FFFFFF", "#00ffec"],
+		logo: "/HS_logo.png",
 	},
 	{
 		href: "https://herognu.is",
 		tags: ["Prismic CMS", "JavaScript", "Figma"],
 		colors: ["#FFFFFF", "#52ff00"],
+		logo: "/HN.png",
 	},
 	{
-		href: "",
+		href: "https://bbafjeldco.is",
 		tags: ["Webflow"],
 		colors: ["#ffd37e", "#ffa400"],
+		logo: "/BBA_logo.png",
 	},
 ];
 
@@ -202,12 +221,26 @@ const PROJECT_TEXT = {
 };
 
 export const PROJECTS: Record<string, Project[]> = {
-	ICE: PROJECT_SHARED.map((shared, i) => ({ ...shared, ...PROJECT_TEXT.ICE[i] })),
-	ENG: PROJECT_SHARED.map((shared, i) => ({ ...shared, ...PROJECT_TEXT.ENG[i] })),
+	ICE: PROJECT_SHARED.map((shared, i) => ({
+		...shared,
+		...PROJECT_TEXT.ICE[i],
+	})),
+	ENG: PROJECT_SHARED.map((shared, i) => ({
+		...shared,
+		...PROJECT_TEXT.ENG[i],
+	})),
 };
 
 const SKILL_ITEMS = [
-	["React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "HTML", "CSS"],
+	[
+		"React",
+		"Next.js",
+		"TypeScript",
+		"JavaScript",
+		"Tailwind CSS",
+		"HTML",
+		"CSS",
+	],
 	["Node.js", "MongoDB", "REST APIs", "Express"],
 	["Figma", "Webflow", "Git", "Responsive Design", "UI/UX Design"],
 ];

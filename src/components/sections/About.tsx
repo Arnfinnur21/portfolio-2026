@@ -5,7 +5,7 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { ABOUT } from "@/lib/data";
 import { useLang } from "../ui/LangProvider";
-
+import Image from "next/image";
 export default function About() {
 	const ref = useRef(null);
 	const inView = useInView(ref, { once: true, margin: "-100px" });
@@ -22,10 +22,15 @@ export default function About() {
 				<h2 className="mb-10 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
 					{about.heading}
 				</h2>
-				<div className="space-y-4 max-w-2xl text-zinc-600 dark:text-zinc-400 leading-relaxed">
-					{about.paragraphs.map((p, i) => (
-						<p key={i}>{p}</p>
-					))}
+				<div className="flex items-center justify-between">
+					<div className="space-y-4 max-w-2xl text-zinc-600 dark:text-zinc-400 leading-relaxed">
+						{about.paragraphs.map((p, i) => (
+							<p key={i}>{p}</p>
+						))}
+					</div>
+					<div>
+						<Image src={"/HN.png"} height={100} width={100} alt="Profile Image" />
+					</div>
 				</div>
 			</motion.div>
 		</section>

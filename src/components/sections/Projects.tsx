@@ -4,6 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { PROJECTS } from "@/lib/data";
 import { useLang } from "../ui/LangProvider";
+import Image from "next/image";
 import Ferrofluid from "../ui/Ferrofluid";
 
 function toAbsoluteUrl(url: string) {
@@ -58,13 +59,28 @@ export default function Projects() {
 								/>
 							</div>
 							{/* Centered content */}
-							<div className="mx-auto max-w-2xl px-6">
-								<h3 className="font-semibold text-zinc-900 dark:text-zinc-50">
-									{project.title}
-								</h3>
-								<p className="mt-2 whitespace-pre-line text-sm text-zinc-600 dark:text-zinc-400">
-									{project.description}
-								</p>
+							<div className="mx-auto max-w-4xl px-6">
+								<div className="flex justify-between">
+									<div className="max-w-xl">
+										<h3 className="font-semibold text-zinc-900 dark:text-zinc-50">
+											{project.title}
+										</h3>
+										<p className="mt-2 whitespace-pre-line text-sm text-zinc-600 dark:text-zinc-400">
+											{project.description}
+										</p>
+									</div>
+									<div
+										className="relative w-38 h-38 shrink-0 transition duration-300 hover:filter-[drop-shadow(0_0_16px_var(--glow-color))]"
+										style={{ "--glow-color": project.colors[1] } as React.CSSProperties}
+									>
+										<Image
+											src={project.logo}
+											fill
+											alt="logo"
+											className="object-contain"
+										/>
+									</div>
+								</div>
 								<div className="mt-4 flex flex-wrap gap-2">
 									{project.tags.map((tag) => (
 										<span

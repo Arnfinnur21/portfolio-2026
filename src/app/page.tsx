@@ -13,14 +13,14 @@ export default function Home() {
 			<Navbar />
 			<main className="pt-16">
 				<Hero />
+				<Projects />
 				<About />
 				<Experience />
-				<Projects />
-				<Skills />
-				<Contact />
+				{/* <Skills /> */}
+				{/* <Contact /> */}
 			</main>
 			<footer className="border-t border-zinc-100 py-8 text-center text-sm text-zinc-400 dark:border-zinc-800">
-				Designed &amp; built by YOUR NAME
+				Scaffolded with AI (Claude) &amp; and built by Arnfinnur Kolbeinsson
 			</footer>
 		</>
 	);

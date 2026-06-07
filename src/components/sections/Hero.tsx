@@ -3,6 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { HERO } from "@/lib/data";
 import { useLang } from "@/components/ui/LangProvider";
+import Ferrofluid from "../ui/Ferrofluid";
 import React from "react";
 
 export default function Hero() {
@@ -24,7 +25,7 @@ export default function Hero() {
 	const ref = React.useRef(null);
 	const isInView = useInView(ref, { once: true });
 	return (
-		<section className="flex min-h-screen flex-col items-center justify-center px-6 text-center from-gray-800 to-background bg-linear-to-br">
+		<section className="flex relative min-h-screen flex-col items-center justify-center px-6 text-center ">
 			<motion.p
 				initial={{ opacity: 0, y: 20 }}
 				animate={{ opacity: 1, y: 0 }}
@@ -33,6 +34,23 @@ export default function Hero() {
 			>
 				{hero.greeting}
 			</motion.p>
+			<div className="absolute inset-0 -z-10 w-screen left-1/2 opacity-50 hover:opacity-100 transition duration-300 -translate-x-1/2 mask-[linear-gradient(to_bottom,transparent,black_18%,black_82%,transparent)]">
+				{/* @ts-expect-error JS component */}
+				<Ferrofluid
+					colors={["#FFFFFF", "#FFFFFF"]}
+					speed={0.05}
+					scale={1}
+					fluidity={0.15}
+					rimWidth={0.18}
+					sharpness={3.1}
+					glow={2.4}
+					flowDirection="down"
+					opacity={1}
+					mouseInteraction={false}
+					mouseStrength={0}
+					mouseRadius={0.05}
+				/>
+			</div>
 			{/* <motion.h1
 				initial={{ opacity: 0, y: 20 }}
 				animate={{ opacity: 1, y: 0 }}
