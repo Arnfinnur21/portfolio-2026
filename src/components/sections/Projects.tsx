@@ -6,6 +6,7 @@ import { PROJECTS } from "@/lib/data";
 import { useLang } from "../ui/LangProvider";
 import Image from "next/image";
 import Ferrofluid from "../ui/Ferrofluid";
+import ToolBadge from "../ui/ToolBadge";
 
 function toAbsoluteUrl(url: string) {
 	if (!url || url === "#") return url;
@@ -83,12 +84,7 @@ export default function Projects() {
 								</div>
 								<div className="mt-4 flex flex-wrap gap-2">
 									{project.tags.map((tag) => (
-										<span
-											key={tag}
-											className="rounded-full bg-zinc-100 px-3 py-1 text-xs font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
-										>
-											{tag}
-										</span>
+										<ToolBadge key={tag} tag={tag} />
 									))}
 								</div>
 								<div className="mt-4 flex gap-4 text-sm font-medium">

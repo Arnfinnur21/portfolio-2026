@@ -1,4 +1,25 @@
-import { NavLink, Project, Experience, Skill } from "./types";
+import {
+	NavLink,
+	Project,
+	ExperienceSection,
+	Skill,
+	EducationSection,
+} from "./types";
+
+// Maps tag names to their logo in /public/tools. Tags without an entry fall back to a text pill.
+export const TOOL_LOGOS: Record<string, string> = {
+	React: "/tools/React.png",
+	TypeScript: "/tools/TypeScript.png",
+	"JS/TS": "/tools/TypeScript.png",
+	JavaScript: "/tools/JavaScript.png",
+	"Next.js": "/tools/Next.js.png",
+	"Prismic CMS": "/tools/logos_prismic-icon.png",
+	Figma: "/tools/Figma.png",
+	"UI/UX": "/tools/Figma.png",
+	Webflow: "/tools/Webflow.png",
+	MongoDB: "/tools/MongoDB.png",
+	"Davinci Resolve": "/tools/DaVinci_Resolve_Studio.png",
+};
 
 export const NAV_LINKS: NavLink[] = [
 	{ label: "About", href: "#about" },
@@ -57,6 +78,9 @@ const EXPERIENCE_SHARED = [
 	{ company: "Nemo Solutions", image: "/nemo_logo.svg" },
 	{ company: "ELKO", image: "/Elko_Logo_2014.png" },
 	{ company: "Takk Samskipti", image: "/takk_logo.png" },
+	{ company: "Domino's", image: "/dominos.png" },
+	{ company: "Sólar Gluggatjöld", image: "/solar-logo.png" },
+	{ company: "Þórsberg", image: "/torsberg.png" },
 ];
 
 const EXPERIENCE_TEXT = {
@@ -75,6 +99,7 @@ const EXPERIENCE_TEXT = {
 				"Figma",
 				"Webflow",
 			],
+			older: false,
 		},
 		{
 			role: "Þjónustufulltrúi & Vakstjóri",
@@ -82,6 +107,7 @@ const EXPERIENCE_TEXT = {
 			description:
 				"Sá um tæknilega aðstoð, þjónustu við viðskiptavini og mikil samskipti við helstu flutningsaðila/birgja landsins. Aðstoðaði viðskiptavini með flóknar tæknivörur og vann í hröðu og krefjandi umhverfi.",
 			tags: ["Forysta", "Tækniþjónusta", "Þjónusta"],
+			older: false,
 		},
 		{
 			role: "Sölufulltrúi",
@@ -89,6 +115,22 @@ const EXPERIENCE_TEXT = {
 			description:
 				"Þróaði sterka samskipta- og söluhæfileika í gegnum dagleg samskipti við viðskiptavini og markmiðadrifna sölu.",
 			tags: ["Samskipti", "Sala"],
+			older: false,
+		},
+		{
+			role: "Sendill",
+			period: "2017 - 2018",
+			older: true,
+		},
+		{
+			role: "Uppsetning & Framleiðsla á gardínum",
+			period: "2013 - 2019",
+			older: true,
+		},
+		{
+			role: "Fiskvinnsla",
+			period: "2011",
+			older: true,
 		},
 	],
 	ENG: [
@@ -98,6 +140,7 @@ const EXPERIENCE_TEXT = {
 			description:
 				"Worked on real-world web solutions and internal tools for clients, focusing on frontend development, UI implementation, and modern web technologies. Collaborated in small teams and contributed to both development and design decisions.",
 			tags: ["React", "TypeScript", "Next.js", "UI/UX"],
+			older: false,
 		},
 		{
 			role: "Customer Service & Shift Manager",
@@ -105,6 +148,7 @@ const EXPERIENCE_TEXT = {
 			description:
 				"Handled technical troubleshooting, customer support, and daily shift operations in Iceland's largest electronics retailer. Assisted customers with complex technical products while helping manage team operations in a fast-paced environment.",
 			tags: ["Leadership", "Technical Support", "Customer Service"],
+			older: false,
 		},
 		{
 			role: "Phone Sales Representative",
@@ -112,19 +156,43 @@ const EXPERIENCE_TEXT = {
 			description:
 				"Developed strong communication and persuasion skills through high-volume customer interactions and sales-focused outreach.",
 			tags: ["Communication", "Sales"],
+			older: false,
+		},
+		{
+			role: "Courier",
+			period: "2017 - 2018",
+			older: true,
+		},
+		{
+			role: "Curtain Installation & Production",
+			period: "2013 - 2019",
+			older: true,
+		},
+		{
+			role: "Fish Processing",
+			period: "2011",
+			older: true,
 		},
 	],
 };
 
-export const EXPERIENCES: Record<string, Experience[]> = {
-	ICE: EXPERIENCE_SHARED.map((shared, i) => ({
-		...shared,
-		...EXPERIENCE_TEXT.ICE[i],
-	})),
-	ENG: EXPERIENCE_SHARED.map((shared, i) => ({
-		...shared,
-		...EXPERIENCE_TEXT.ENG[i],
-	})),
+export const EXPERIENCES: Record<string, ExperienceSection> = {
+	ICE: {
+		heading: "Starfsferill",
+		olderHeading: "Eldri störf",
+		items: EXPERIENCE_SHARED.map((shared, i) => ({
+			...shared,
+			...EXPERIENCE_TEXT.ICE[i],
+		})),
+	},
+	ENG: {
+		heading: "Work History",
+		olderHeading: "Earlier Roles",
+		items: EXPERIENCE_SHARED.map((shared, i) => ({
+			...shared,
+			...EXPERIENCE_TEXT.ENG[i],
+		})),
+	},
 };
 
 // Shared fields that don't need translation
@@ -138,7 +206,6 @@ const PROJECT_SHARED = [
 	},
 	{
 		href: "https://nfs2026.is",
-		repo: "",
 		tags: ["Webflow", "UI/UX", "CMS"],
 		colors: ["#FFFFFF", "#52ff00"],
 		logo: "/NFS_logo.png",
@@ -256,6 +323,100 @@ export const SKILLS: Record<string, Skill[]> = {
 		{ category: "Backend", items: SKILL_ITEMS[1] },
 		{ category: "Design & Tools", items: SKILL_ITEMS[2] },
 	],
+};
+
+// Shared fields that don't need translation. `image` shows a school/provider logo
+// inside the item's timeline dot instead of the default graduation cap icon.
+const EDUCATION_SHARED = [
+	{ image: "/education/hr_logo.png" as string | undefined },
+	{ image: "/education/google_logo.png" as string | undefined },
+	{ image: "/education/ts_logo.webp" as string | undefined },
+	{ image: "/education/mh_logo.png" as string | undefined },
+	{ image: "/education/alfto_logo.png" as string | undefined },
+];
+
+const EDUCATION_TEXT = {
+	ICE: [
+		{
+			degree: "Bakkalársgráða",
+			institution: "Háskólinn í Reykjavík",
+			type: "Háskólapróf (BSc)",
+			period: "ágúst 2023 - júní 2026",
+		},
+		{
+			degree: "Fundamentals in Digital Marketing",
+			institution: "Google",
+			type: "Námskeið",
+			period: "mars 2022 - apríl 2022",
+		},
+		{
+			degree: "Brottfararpróf í Grafískri Miðlun",
+			institution: "Tækniskólinn",
+			type: "Sveinspróf",
+			period: "ágúst 2018 - maí 2020",
+		},
+		{
+			degree: "Stúdentspróf",
+			institution: "Menntaskólinn við Hamrahlíð",
+			type: "Framhaldsskólapróf",
+			period: "ágúst 2012 - júní 2016",
+		},
+		{
+			degree: "Grunnskólapróf",
+			institution: "Álftamýrarskóli",
+			type: "Grunnskólapróf",
+			period: "maí 2002 - ágúst 2012",
+		},
+	],
+	ENG: [
+		{
+			degree: "Bachelors in Computer Science",
+			institution: "Reykjavík University",
+			type: "Bachelor's Degree (BSc)",
+			period: "August 2023 - June 2026",
+		},
+		{
+			degree: "Fundamentals in Digital Marketing",
+			institution: "Google",
+			type: "Course",
+			period: "March 2022 - April 2022",
+		},
+		{
+			degree: "Graphic Communication Diploma",
+			institution: "Tækniskólinn",
+			type: "Journeyman's Certificate",
+			period: "August 2018 - May 2020",
+		},
+		{
+			degree: "College Diploma",
+			institution: "Menntaskólinn við Hamrahlíð",
+			type: "College",
+			period: "August 2012 - June 2016",
+		},
+		{
+			degree: "Primary School Diploma",
+			institution: "Álftamýrarskóli",
+			type: "Other",
+			period: "May 2002 - August 2012",
+		},
+	],
+};
+
+export const EDUCATION: Record<string, EducationSection> = {
+	ICE: {
+		heading: "Menntun",
+		items: EDUCATION_SHARED.map((shared, i) => ({
+			...shared,
+			...EDUCATION_TEXT.ICE[i],
+		})),
+	},
+	ENG: {
+		heading: "Education",
+		items: EDUCATION_SHARED.map((shared, i) => ({
+			...shared,
+			...EDUCATION_TEXT.ENG[i],
+		})),
+	},
 };
 
 const CONTACT_SHARED = {

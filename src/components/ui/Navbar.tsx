@@ -23,7 +23,7 @@ export default function Navbar() {
 					{HERO.ICE.name}
 				</a>
 				<div className="flex items-center gap-6">
-					<ul className="flex gap-6 text-sm font-medium text-zinc-600 dark:text-zinc-400">
+					{/* <ul className="flex gap-6 text-sm font-medium text-zinc-600 dark:text-zinc-400">
 						{NAV_LINKS.map((link) => (
 							<li key={link.href}>
 								<a
@@ -34,10 +34,11 @@ export default function Navbar() {
 								</a>
 							</li>
 						))}
-					</ul>
+					</ul> */}
 					<button
 						onClick={() => setLang(lang === "ICE" ? "ENG" : "ICE")}
 						aria-label="Switch language"
+						className="absolute"
 					>
 						<Image
 							src={lang === "ICE" ? "/usa_flag.png" : "/iceland_flag.png"}

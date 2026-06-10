@@ -5,11 +5,14 @@ import { useRef } from "react";
 import { EXPERIENCES } from "@/lib/data";
 import { useLang } from "../ui/LangProvider";
 import Image from "next/image";
+import ToolBadge from "../ui/ToolBadge";
 export default function Experience() {
 	const ref = useRef(null);
 	const inView = useInView(ref, { once: true, margin: "-100px" });
 	const lang = useLang();
 	const experiences = EXPERIENCES[lang];
+	const recent = experiences.items.filter((exp) => !exp.older);
+	const older = experiences.items.filter((exp) => exp.older);
 
 	return (
 		<section id="experience" className="mx-auto max-w-5xl px-6 py-24">
@@ -20,10 +23,10 @@ export default function Experience() {
 				transition={{ duration: 0.5 }}
 			>
 				<h2 className="mb-10 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
-					Experience
+					{experiences.heading}
 				</h2>
 				<div className="space-y-10">
-					{experiences.map((exp, i) => (
+					{recent.map((exp, i) => (
 						<motion.div
 							key={i}
 							initial={{ opacity: 0, x: -20 }}
@@ -51,21 +54,37 @@ export default function Experience() {
 									/>
 								)}
 							</div>
-							{exp.tags && (
+							{/* {exp.tags && (
 								<div className="mt-3 flex flex-wrap gap-2">
 									{exp.tags.map((tag) => (
-										<span
-											key={tag}
-											className="rounded-full bg-zinc-100 px-3 py-1 text-xs font-medium text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300"
-										>
-											{tag}
-										</span>
+										<ToolBadge key={tag} tag={tag} />
 									))}
 								</div>
-							)}
+							)} */}
 						</motion.div>
 					))}
 				</div>
+				{older.length > 0 && (
+					<div className="mt-12 border-t border-zinc-200 pt-8 dark:border-zinc-800">
+						<h3 className="mb-4 text-sm font-semibold uppercase tracking-wide text-zinc-500">
+							{experiences.olderHeading}
+						</h3>
+						<ul className="space-y-2">
+							{older.map((exp, i) => (
+								<li
+									key={i}
+									className="flex flex-wrap items-baseline justify-between gap-2 text-sm text-zinc-600 dark:text-zinc-400"
+								>
+									<span>
+										{exp.role}{" "}
+										<span className="text-zinc-500">@ {exp.company}</span>
+									</span>
+									<span className="text-zinc-500">{exp.period}</span>
+								</li>
+							))}
+						</ul>
+					</div>
+				)}
 			</motion.div>
 		</section>
 	);
