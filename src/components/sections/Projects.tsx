@@ -5,6 +5,7 @@ import { useRef } from "react";
 import { PROJECTS } from "@/lib/data";
 import { useLang } from "../ui/LangProvider";
 import Image from "next/image";
+import Link from "next/link";
 import Ferrofluid from "../ui/Ferrofluid";
 import ToolBadge from "../ui/ToolBadge";
 
@@ -38,10 +39,10 @@ export default function Projects() {
 							initial={{ opacity: 0, y: 20 }}
 							animate={inView ? { opacity: 1, y: 0 } : {}}
 							transition={{ delay: i * 0.1 + 0.2 }}
-							className="relative w-full overflow-hidden py-20 transition mask-image:radial-gradient(circle_at_center,black_80%,transparent_100%) grayscale hover:grayscale-0 duration-300"
+							className="group relative w-full overflow-hidden py-20 transition mask-image:radial-gradient(circle_at_center,black_80%,transparent_100%) grayscale hover:grayscale-0 duration-300"
 						>
 							{/* Full-width background */}
-							<div className="absolute inset-0 -z-10 w-screen left-1/2 opacity-50 hover:opacity-100 transition duration-300 -translate-x-1/2 mask-[linear-gradient(to_bottom,transparent,black_18%,black_82%,transparent)]">
+							<div className="absolute inset-0 -z-10 w-screen left-1/2 opacity-50 group-hover:opacity-100 transition duration-300 -translate-x-1/2 mask-[linear-gradient(to_bottom,transparent,black_18%,black_82%,transparent)]">
 								{/* @ts-expect-error JS component */}
 								<Ferrofluid
 									colors={[project.colors[0], project.colors[1]]}
@@ -74,40 +75,20 @@ export default function Projects() {
 										className="relative w-38 h-38 shrink-0 transition duration-300 hover:filter-[drop-shadow(0_0_16px_var(--glow-color))]"
 										style={{ "--glow-color": project.colors[1] } as React.CSSProperties}
 									>
-										<Image
-											src={project.logo}
-											fill
-											alt="logo"
-											className="object-contain"
-										/>
+										<Link href={project.href}>
+											<Image
+												src={project.logo}
+												fill
+												alt="logo"
+												className="object-contain"
+											/>
+										</Link>
 									</div>
 								</div>
 								<div className="mt-4 flex flex-wrap gap-2">
 									{project.tags.map((tag) => (
 										<ToolBadge key={tag} tag={tag} />
 									))}
-								</div>
-								<div className="mt-4 flex gap-4 text-sm font-medium">
-									{project.href && (
-										<a
-											href={toAbsoluteUrl(project.href)}
-											target="_blank"
-											rel="noopener noreferrer"
-											className="text-zinc-500 transition hover:text-zinc-900 dark:hover:text-zinc-50"
-										>
-											Live ↗
-										</a>
-									)}
-									{project.repo && (
-										<a
-											href={toAbsoluteUrl(project.repo)}
-											target="_blank"
-											rel="noopener noreferrer"
-											className="text-zinc-500 transition hover:text-zinc-900 dark:hover:text-zinc-50"
-										>
-											GitHub ↗
-										</a>
-									)}
 								</div>
 							</div>
 						</motion.div>

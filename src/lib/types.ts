@@ -22,6 +22,7 @@ export interface Experience {
 	tags?: string[];
 	image: string;
 	older: boolean;
+	active?: boolean;
 }
 
 export interface ExperienceSection {

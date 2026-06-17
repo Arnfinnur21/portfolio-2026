@@ -38,7 +38,11 @@ export default function Experience() {
 								<h3 className="font-semibold text-zinc-900 dark:text-zinc-50">
 									{exp.role} <span className="text-zinc-500">@ {exp.company}</span>
 								</h3>
-								<span className="text-sm text-zinc-500">{exp.period}</span>
+								<span
+									className={`text-sm  ${exp.active ? "text-zinc-100 font-bold" : "text-zinc-500"}`}
+								>
+									{exp.period}
+								</span>
 							</div>
 							<div className="flex flex-row justify-between gap-30">
 								<p className="mt-2 text-zinc-600 dark:text-zinc-400">
@@ -76,8 +80,7 @@ export default function Experience() {
 									className="flex flex-wrap items-baseline justify-between gap-2 text-sm text-zinc-600 dark:text-zinc-400"
 								>
 									<span>
-										{exp.role}{" "}
-										<span className="text-zinc-500">@ {exp.company}</span>
+										{exp.role} <span className="text-zinc-500">@ {exp.company}</span>
 									</span>
 									<span className="text-zinc-500">{exp.period}</span>
 								</li>
