@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { TOOL_LOGOS } from "@/lib/data";
 
+const DARK_INVERT = new Set(["Next.js", "Vercel"]);
+
 export default function ToolBadge({ tag }: { tag: string }) {
 	const logo = TOOL_LOGOS[tag];
 
@@ -18,7 +20,7 @@ export default function ToolBadge({ tag }: { tag: string }) {
 				alt={tag}
 				width={20}
 				height={20}
-				className="object-contain"
+				className={`object-contain${DARK_INVERT.has(tag) ? " dark:invert" : ""}`}
 			/>
 		</span>
 	);

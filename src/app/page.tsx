@@ -7,6 +7,7 @@ import Education from "@/components/sections/Education";
 import Projects from "@/components/sections/Projects";
 import Skills from "@/components/sections/Skills";
 import Contact from "@/components/sections/Contact";
+import PersonalProjects from "@/components/sections/PersonalProjects";
 import LanguageButton from "@/components/LanguageButton";
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
 				<About />
 				<Experience />
 				<Education />
+				<PersonalProjects />
 				{/* <Skills /> */}
 				{/* <Contact /> */}
 				<LanguageButton />
