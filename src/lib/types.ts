@@ -6,6 +6,7 @@ export interface NavLink {
 export interface Project {
 	title: string;
 	description: string;
+	sidenote?: string;
 	tags: string[];
 	href?: string;
 	repo?: string;
@@ -47,4 +48,9 @@ export interface EducationItem {
 export interface EducationSection {
 	heading: string;
 	items: EducationItem[];
+}
+
+export interface HobbyProject {
+	heading: string;
+	items: Project[];
 }

@@ -4,6 +4,7 @@ import {
 	ExperienceSection,
 	Skill,
 	EducationSection,
+	HobbyProject,
 } from "./types";
 
 export const TOOL_LOGOS: Record<string, string> = {
@@ -18,6 +19,14 @@ export const TOOL_LOGOS: Record<string, string> = {
 	Webflow: "/tools/Webflow.png",
 	MongoDB: "/tools/MongoDB.png",
 	"Davinci Resolve": "/tools/DaVinci_Resolve_Studio.png",
+	Python: "/python_logo.png",
+	Riot: "/riot_logo.png",
+	OSRS: "/osrs_logo.png",
+	ElevenLabs: "/el_logo.png",
+	OBS: "/obs_logo.png",
+	OpenAI: "/openai_logo.png",
+	Twitch: "/twitch_logo.png",
+	Vercel: "/vercel_logo.png"
 };
 
 export const NAV_LINKS: NavLink[] = [
@@ -418,6 +427,66 @@ export const EDUCATION: Record<string, EducationSection> = {
 		items: EDUCATION_SHARED.map((shared, i) => ({
 			...shared,
 			...EDUCATION_TEXT.ENG[i],
+		})),
+	},
+};
+
+const HOBBY_PROJECT_SHARED = [
+	{ tags: ["Python", "OBS", "Twitch", "OpenAI", "ElevenLabs"], colors: ["#FFFFFF", "#BE27F5"], logo: "/twitch_logo.png" },
+	{ tags: ["Next.js", "Riot", "JavaScript", "Vercel"], colors: ["#FFFFFF", "#00ffec"], logo: "/lol_logo.png" },
+	{ tags: ["Next.js", "OSRS", "JavaScript", "Vercel"], colors: ["#FFFFFF", "#ffa400"], logo: "/osrs_logo.png" },
+];
+
+const HOBBY_PROJECT_TEXT = {
+	ICE: [
+		{
+			title: "Twitch AI Botti",
+			description: "Twitch botti fyrir streymi, aðallega fyrir vini mína.\n\nBottinn tekur við beiðnum frá Twitch í formi '!tts' eða '!bot' og spilar skilaboð til baka í rödd sem notandinn velur.\n\n Beiðnin er filteruð í gegnum OpenAI API'ið og ElevenLabs er notað til að spila og búa til raddirnar.\n\nOBS Websockets og TwitchIO er notað til að meðhöndla tengingu við twitch og móttöku og sendingu skilaboða.",
+			sidenote: "Sidenote hér.",
+		},
+		{
+			title: "League Tölfræði",
+			description: "Hálfstatic síða sem sýnir skemmtilega tölfræði yfir síðustu 20 leiki hjá völdum spilurum.\n\n Riot API'ið er notað til að nálgast gögn og síðan er rennt í gegnum response'ið til sía og móta.",
+			sidenote: "Þar sem þetta var verkefni fyrir lítin hóp þá þurfti ég að koma með áhugaverðar leiðir til að komast framhjá timeout'i útaf mörgum requests. \n\n Mestöll vinnan fór í það að renna yfir massívu skrárnar sem skila sér frá Riot og tengja saman playerana við þeirra stats.",
+		},
+		{
+			title: "RuneScape Tölfræði",
+			description: "Rosalega svipuð pæling og League Tölfræðin.\n\n Jagex API'ið er notað til að nálgast gögn hjá völdum spilurum sem er síðan rennt yfir og gert lesanleg.",
+			sidenote: "Sidenote hér.",
+		},
+	],
+	ENG: [
+		{
+			title: "Project 1",
+			description: "Description of a personal project.",
+			sidenote: "Sidenote here.",
+		},
+		{
+			title: "Project 2",
+			description: "Description of a personal project.",
+			sidenote: "Sidenote here.",
+		},
+		{
+			title: "Project 3",
+			description: "Description of a personal project.",
+			sidenote: "Sidenote here.",
+		},
+	],
+};
+
+export const HOBBY_PROJECTS: Record<string, HobbyProject> = {
+	ICE: {
+		heading: "Eigin Verkefni",
+		items: HOBBY_PROJECT_SHARED.map((shared, i) => ({
+			...shared,
+			...HOBBY_PROJECT_TEXT.ICE[i],
+		})),
+	},
+	ENG: {
+		heading: "Personal Projects",
+		items: HOBBY_PROJECT_SHARED.map((shared, i) => ({
+			...shared,
+			...HOBBY_PROJECT_TEXT.ENG[i],
 		})),
 	},
 };
