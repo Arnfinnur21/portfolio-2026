@@ -24,7 +24,7 @@ export default function Home() {
 				<LanguageButton />
 			</main>
 			<footer className="border-t border-zinc-100 py-8 text-center text-sm text-zinc-400 dark:border-zinc-800">
-				Scaffolded with AI (Claude) &amp; and built by Arnfinnur Kolbeinsson
+				Scaffolded with AI (Claude) & and built by Arnfinnur Kolbeinsson
 			</footer>
 		</>
 	);
