@@ -41,7 +41,7 @@ export default function Experience() {
 								<span className="text-sm text-zinc-500">{exp.period}</span>
 							</div>
 							<div className="flex flex-row justify-between gap-30">
-								<p className="mt-2 text-zinc-600 dark:text-zinc-400">
+								<p className="mt-2 whitespace-pre-line text-zinc-600 dark:text-zinc-400">
 									{exp.description}
 								</p>
 								{"image" in exp && exp.image && (

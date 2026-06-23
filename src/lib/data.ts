@@ -49,7 +49,7 @@ export const HERO = {
 		greeting: "Góðan daginn, ég heiti",
 		pronounciation: "",
 		tagline:
-			"Tölvunarfræðingur með áherslu á vefþróun, notendaviðmót og stafræna upplifun",
+			"Tölvunarfræðingur með áherslu á vefþróun, notendaviðmót og efnisgerð",
 		bio: "Tæknimiðaður forritari með reynslu í bæði framenda- og bakendaforritun, hönnun og efnisgerð. Hef unnið að veflausnum og stafrænum verkefnum fyrir bæði smáa og stóra kúnna ásamt því að þróa eigin verkefni í frítíma.",
 		ctaLabel: "Sjá verkefni",
 	},
@@ -72,6 +72,7 @@ export const ABOUT = {
 			"Ég heiti Arnfinnur Kolbeinsson og er nýútskrifaður tölvunarfræðingur frá Háskólanum í Reykjavík. Ég hef lengi haft mikinn áhuga á tækni, hönnun og stafrænum lausnum.",
 			"Ég sérhæfi mig helst í vefþróun og notendaviðmótum, en hef einnig reynslu af bakendaforritun, hönnun og efnisgerð. Hef unnið að bæði eigin verkefnum og lausnum fyrir raunverulega kúnna í gegnum störf mín og freelance vinnu.",
 		],
+		image: "/ak_port.webp"
 	},
 	ENG: {
 		heading: "About Me",
@@ -79,13 +80,14 @@ export const ABOUT = {
 			"My name is Arnfinnur Kolbeinsson and I recently graduated in Computer Science from Reykjavík University. I've always been passionate about technology, design, and building digital experiences.",
 			"I mainly focus on frontend development and UI work, while also having experience with backend development, design, and digital media production. I've worked on both personal and client-facing projects through freelance work and software development roles.",
 		],
+		image: "/ak_port.webp"
 	},
 };
 
 // Shared fields that don't need translation
 const EXPERIENCE_SHARED = [
 	{ company: "Nemo Solutions", image: "/nemo_logo.svg" },
-	{ company: "ELKO", image: "/Elko_Logo_2014.png" },
+	{ company: "ELKO Þjónustuver", image: "/Elko_Logo_2014.png" },
 	{ company: "Takk Samskipti", image: "/takk_logo.png" },
 	{ company: "Domino's", image: "/dominos.png" },
 	{ company: "Sólar Gluggatjöld", image: "/solar-logo.png" },
@@ -98,7 +100,9 @@ const EXPERIENCE_TEXT = {
 			role: "Hugbúnaðarþróun",
 			period: "2022 – Núverandi",
 			description:
-				"Komið að þróun á veflausnum og innri kerfum fyrir kúnna með áherslu á framenda, notendaviðmót og nútímalega vefþróun. Unnið í litlum teymum og tekið þátt í bæði þróunar- og hönnunarákvörðunum.",
+				`Komið að þróun á veflausnum og innri kerfum fyrir kúnna með áherslu á framenda, notendaviðmót og nútímalega vefþróun. 
+				Unnið í litlum teymum og tekið þátt í bæði þróunar- og hönnunarákvörðunum. 
+				Hef verið settur í óþekkt kóðaumhverfi og fundið mína leið til að sinna viðhaldi. Hef refactorað heilar síður og komið með kerfishönnunarbreytingar á margar fleiri.`,
 			tags: [
 				"React",
 				"JS/TS",
@@ -114,7 +118,11 @@ const EXPERIENCE_TEXT = {
 			role: "Þjónustufulltrúi & Vakstjóri",
 			period: "2021 – Núverandi",
 			description:
-				"Sá um tæknilega aðstoð, þjónustu við viðskiptavini og mikil samskipti við helstu flutningsaðila/birgja landsins. Aðstoðaði viðskiptavini með flóknar tæknivörur og vann í hröðu og krefjandi umhverfi.",
+				`Sá um tæknilega aðstoð, þjónustu við viðskiptavini og mikil samskipti við helstu flutningsaðila/birgja landsins. Hingað koma öll símtöl, tölvupóstar og spjöll inn fyrir stærstu raftækjaverslun landsins.
+
+Lært á mörg ný kerfi sem hafa verið síbreytileg og uppfærð án þess að það hefur áhrif á þjónustu.
+
+Unnið sem vaktstjóri yfir Black Friday, Singles Day og séð um eftirkaupaþjónustu eftir áramót þegar mest er um að gera í þjónustuverinu.`,
 			tags: ["Forysta", "Tækniþjónusta", "Þjónusta"],
 			older: false,
 		},
@@ -244,12 +252,16 @@ const PROJECT_TEXT = {
 		{
 			title: "TypeWriter",
 			description:
-				"Lokaverkefnið mitt fyrir BSc gráðuna mína í Tölvunarfræði.\n \n Ritgreiningarkerfi fyrir nemendur og kennara með áherslu á ritunargögn, framvindu og greiningu skjala.",
+				`Lokaverkefnið mitt fyrir BSc gráðuna mína í Tölvunarfræði.
+
+Ritgreiningarkerfi fyrir nemendur og kennara með áherslu á ritunargögn, framvindu og greiningu skjala.`,
 		},
 		{
 			title: "Ráðstefnuvefur NFS 2026",
 			description:
-				"Static vefsíða fyrir Nordic Fertility Society ráðstefnuna 2026. \n \n Sá um uppsetningu, hýsingu, hönnun og umsjón á vefnum fyrir Senu. Setti upp CMS fyrir auðvelda uppsetningu og breytingu á efni fyrir kúnna.",
+				`Static vefsíða fyrir Nordic Fertility Society ráðstefnuna 2026.
+
+Sá um uppsetningu, hýsingu, hönnun og umsjón á vefnum fyrir Senu. Setti upp CMS fyrir auðvelda uppsetningu og breytingu á efni fyrir kúnna.`,
 		},
 		{
 			title: "Hrein Snilld",
@@ -259,12 +271,16 @@ const PROJECT_TEXT = {
 		{
 			title: "Hér & Nú",
 			description:
-				"Sá um uppsetningu á rebranding síðu hjá auglýsingastofunni Hér & Nú. \n \n Mikið af samskiptum við hönnuði til að tryggja að síðan leit út alveg eins og þau vildu.",
+				`Sá um uppsetningu á rebranding síðu hjá auglýsingastofunni Hér & Nú.
+
+Mikið af samskiptum við hönnuði til að tryggja að síðan leit út alveg eins og þau vildu.`,
 		},
 		{
 			title: "BBA // Fjeldco",
 			description:
-				"Sá um ýmsar breytingar á heimasíðunni. \n \n Uppsetning á nýjum undirsíðum og breytingar á núverandi síðum",
+				`Sá um ýmsar breytingar á heimasíðunni.
+
+Uppsetning á nýjum undirsíðum og breytingar á núverandi síðum.`,
 		},
 	],
 	ENG: [
@@ -291,7 +307,9 @@ const PROJECT_TEXT = {
 		{
 			title: "BBA // Fjeldco",
 			description:
-				"Handled various changes on their main website. \n \n Creation of new subpages and changes to existing ones",
+				`Handled various changes on their main website.
+
+Creation of new subpages and changes to existing ones.`,
 		},
 	],
 };
@@ -438,18 +456,30 @@ const HOBBY_PROJECT_TEXT = {
 	ICE: [
 		{
 			title: "Twitch AI Botti",
-			description: "Twitch botti fyrir streymi, aðallega fyrir vini mína.\n\nBottinn tekur við beiðnum frá Twitch í formi '!tts' eða '!bot' og spilar skilaboð til baka í rödd sem notandinn velur.\n\n Beiðnin er filteruð í gegnum OpenAI API'ið og ElevenLabs er notað til að spila og búa til raddirnar.\n\nOBS Websockets og TwitchIO er notað til að meðhöndla tengingu við twitch og móttöku og sendingu skilaboða.",
-			sidenote: "Sidenote hér.",
+			description: `Twitch botti fyrir streymi, aðallega fyrir vini mína.
+
+Bottinn tekur við beiðnum frá Twitch í formi '!tts' eða '!bot' og spilar skilaboð til baka í rödd sem notandinn velur.
+
+Beiðnin er filteruð í gegnum OpenAI API'ið og ElevenLabs er notað til að spila og búa til raddirnar.
+
+OBS Websockets og TwitchIO er notað til að meðhöndla tengingu við twitch og móttöku og sendingu skilaboða.`,
+			sidenote: `Mér hefur alltaf fundist svona AI raddir skemmtilegar og komst að því að það var einfaldara en ég hélt að setja þær upp. Síðan í kjölfarið var mjög skemmtilegt að búa til 'persónuleika' fyrir raddirnar þannig þær hljómi ekki allar eins og default GPT svör.`,
 		},
 		{
 			title: "League Tölfræði",
-			description: "Hálfstatic síða sem sýnir skemmtilega tölfræði yfir síðustu 20 leiki hjá völdum spilurum.\n\n Riot API'ið er notað til að nálgast gögn og síðan er rennt í gegnum response'ið til sía og móta.",
-			sidenote: "Þar sem þetta var verkefni fyrir lítin hóp þá þurfti ég að koma með áhugaverðar leiðir til að komast framhjá timeout'i útaf mörgum requests. \n\n Mestöll vinnan fór í það að renna yfir massívu skrárnar sem skila sér frá Riot og tengja saman playerana við þeirra stats.",
+			description: `Hálfstatic síða sem sýnir skemmtilega tölfræði yfir síðustu 20 leiki hjá völdum spilurum.
+
+Riot API'ið er notað til að nálgast gögn og síðan er rennt í gegnum response'ið til sía og móta.`,
+			sidenote: `Þar sem þetta var verkefni fyrir lítin hóp þá þurfti ég að koma með áhugaverðar leiðir til að komast framhjá timeout'i útaf mörgum requests.
+
+Mestöll vinnan fór í það að renna yfir massívu skrárnar sem skila sér frá Riot og tengja saman playerana við þeirra stats.`,
 		},
 		{
 			title: "RuneScape Tölfræði",
-			description: "Rosalega svipuð pæling og League Tölfræðin.\n\n Jagex API'ið er notað til að nálgast gögn hjá völdum spilurum sem er síðan rennt yfir og gert lesanleg.",
-			sidenote: "Sidenote hér.",
+			description: `Rosalega svipuð pæling og League Tölfræðin.
+
+Jagex API'ið er notað til að nálgast gögn hjá völdum spilurum sem er síðan rennt yfir og gert lesanleg.`,
+			sidenote: `Fyrsta verkefnið sem ég gerði í frítímanum mínum. Mig langaði að sjá tölfræðina hjá mér og vinum mínum fyrst. Það voru að sjálfsögðu önnur tól í boði en þá þyrfti að leita af einum og síðan opna annað tab til að sjá annan o.s.frvs.`,
 		},
 	],
 	ENG: [
