@@ -101,8 +101,10 @@ const EXPERIENCE_TEXT = {
 			period: "2022 – Núverandi",
 			description:
 				`Komið að þróun á veflausnum og innri kerfum fyrir kúnna með áherslu á framenda, notendaviðmót og nútímalega vefþróun. 
+				
 				Unnið í litlum teymum og tekið þátt í bæði þróunar- og hönnunarákvörðunum. 
-				Hef verið settur í óþekkt kóðaumhverfi og fundið mína leið til að sinna viðhaldi. Hef refactorað heilar síður og komið með kerfishönnunarbreytingar á margar fleiri.`,
+				
+				Settur í óþekkt kóðaumhverfi og fundið mína leið til að sinna verkefnum. Hef refactorað heilar síður og komið með kerfishönnunarbreytingar á margar fleiri.`,
 			tags: [
 				"React",
 				"JS/TS",
@@ -155,7 +157,11 @@ Unnið sem vaktstjóri yfir Black Friday, Singles Day og séð um eftirkaupaþj�
 			role: "Software Developer",
 			period: "2022 – Present",
 			description:
-				"Worked on real-world web solutions and internal tools for clients, focusing on frontend development, UI implementation, and modern web technologies. Collaborated in small teams and contributed to both development and design decisions.",
+				`Worked on real-world web solutions and internal tools for clients, focusing on frontend development, UI implementation, and modern web technologies.
+
+Stepped into unfamiliar codebases and found my footing quickly — refactoring entire pages and proposing system-level design changes across multiple projects.
+
+Collaborated in small teams with input on both development and design decisions.`,
 			tags: ["React", "TypeScript", "Next.js", "UI/UX"],
 			older: false,
 		},
@@ -163,7 +169,11 @@ Unnið sem vaktstjóri yfir Black Friday, Singles Day og séð um eftirkaupaþj�
 			role: "Customer Service & Shift Manager",
 			period: "2021 – Present",
 			description:
-				"Handled technical troubleshooting, customer support, and daily shift operations in Iceland's largest electronics retailer. Assisted customers with complex technical products while helping manage team operations in a fast-paced environment.",
+				`Handled technical troubleshooting, customer support, and high-volume communication in Iceland's largest electronics retailer — all calls, emails, and chats for the company flow through this team, including direct contact with major carriers and suppliers.
+
+Continuously adapted to frequently updated internal systems without disruption to service quality.
+
+Managed shift operations as shift manager through Black Friday, Singles Day, and post-holiday support surges.`,
 			tags: ["Leadership", "Technical Support", "Customer Service"],
 			older: false,
 		},
@@ -215,6 +225,12 @@ export const EXPERIENCES: Record<string, ExperienceSection> = {
 // Shared fields that don't need translation
 const PROJECT_SHARED = [
 	{
+		href: "https://nfs2026.is",
+		tags: ["Webflow", "UI/UX", "CMS"],
+		colors: ["#FFFFFF", "#52ff00"],
+		logo: "/NFS_logo.png",
+	},
+	{
 		repo: "https://skemman.is/handle/1946/52014",
 		href: "",
 		tags: ["React", "TypeScript", "MongoDB", "Next.js"],
@@ -222,10 +238,10 @@ const PROJECT_SHARED = [
 		logo: "/TW_logo.png",
 	},
 	{
-		href: "https://nfs2026.is",
-		tags: ["Webflow", "UI/UX", "CMS"],
-		colors: ["#FFFFFF", "#52ff00"],
-		logo: "/NFS_logo.png",
+		href: "https://bbafjeldco.is",
+		tags: ["Webflow"],
+		colors: ["#ffd37e", "#ffa400"],
+		logo: "/BBA_logo.png",
 	},
 	{
 		href: "https://hreinsnilld.is",
@@ -239,29 +255,39 @@ const PROJECT_SHARED = [
 		colors: ["#FFFFFF", "#52ff00"],
 		logo: "/HN.png",
 	},
-	{
-		href: "https://bbafjeldco.is",
-		tags: ["Webflow"],
-		colors: ["#ffd37e", "#ffa400"],
-		logo: "/BBA_logo.png",
-	},
 ];
 
 const PROJECT_TEXT = {
 	ICE: [
 		{
-			title: "TypeWriter",
-			description:
-				`Lokaverkefnið mitt fyrir BSc gráðuna mína í Tölvunarfræði.
-
-Ritgreiningarkerfi fyrir nemendur og kennara með áherslu á ritunargögn, framvindu og greiningu skjala.`,
-		},
-		{
 			title: "Ráðstefnuvefur NFS 2026",
 			description:
 				`Static vefsíða fyrir Nordic Fertility Society ráðstefnuna 2026.
 
-Sá um uppsetningu, hýsingu, hönnun og umsjón á vefnum fyrir Senu. Setti upp CMS fyrir auðvelda uppsetningu og breytingu á efni fyrir kúnna.`,
+Sá um uppsetningu, hýsingu, hönnun og umsjón á vefnum fyrir Senu. Setti upp CMS fyrir auðvelda uppsetningu og breytingu á efni fyrir kúnna. 
+
+Þetta er árleg ráðstefna sem Nordic Fertility Society heldur. Hingað fara einstaklingar og fyrirtæki til að skrá sig á ráðstefnuna og afla sér upplýsinga um viðburði og landið í heild sinni. Allt efnið var sett upp á aðgengilegan hátt þar sem aldursbilið er mikið og tæknikunnáttan misjöfn. 
+`,
+		},
+		{
+			title: "TypeWriter",
+			description:
+				`Lokaverkefnið mitt fyrir BSc gráðuna mína í Tölvunarfræði.
+
+Ritgreiningarkerfi fyrir nemendur og kennara með áherslu á ritunargögn, framvindu og greiningu skjala.
+
+Kerfið gefur ítarlega tölfræði og sögu fyrir skrifleg verkefni unnin af nemendum. Kerfið var byggt alveg frá grunni með gagnagrunn, skýjahýsingu, aðgangsumsjón og fleiru ofan á virknina sjálfa. 
+`,
+		},
+		{
+			title: "BBA // Fjeldco",
+			description:
+				`Sá um ýmsar breytingar á heimasíðunni.
+
+Uppsetning á nýjum undirsíðum og breytingar á núverandi síðum. Oft unnið á þröngum tímarömmum og klárað beiðnir fljótt og örugglega. 
+
+Ýmsar lausnir þar sem það þurfti að blanda saman sérsniðnum kóða við uppsetninguna. 
+`,
 		},
 		{
 			title: "Hrein Snilld",
@@ -273,43 +299,45 @@ Sá um uppsetningu, hýsingu, hönnun og umsjón á vefnum fyrir Senu. Setti upp
 			description:
 				`Sá um uppsetningu á rebranding síðu hjá auglýsingastofunni Hér & Nú.
 
-Mikið af samskiptum við hönnuði til að tryggja að síðan leit út alveg eins og þau vildu.`,
-		},
-		{
-			title: "BBA // Fjeldco",
-			description:
-				`Sá um ýmsar breytingar á heimasíðunni.
+Mikið af samskiptum við hönnuði til að tryggja að síðan leit út alveg eins og þau vildu.
 
-Uppsetning á nýjum undirsíðum og breytingar á núverandi síðum.`,
+Passa þurfti sérstaklega upp á það að síðan myndi líta vel út í öllum upplausnum. 
+`,
 		},
 	],
 	ENG: [
 		{
+			title: "NFS 2026 Conference",
+			description:
+				`Live production website for the Nordic Fertility Society conference 2026.
+
+Handled full setup, hosting, design, and ongoing management of the site. Set up a CMS so the client can update content themselves without needing a developer.`,
+		},
+		{
 			title: "TypeWriter",
 			description:
-				"A writing analytics platform built for students and teachers with features focused on writing statistics, progress tracking, and document analysis.",
-		},
-		{
-			title: "Conference Website",
-			description:
-				"Designed and developed a modern conference website with CMS-driven content management, responsive layouts, and custom UI components.",
-		},
-		{
-			title: "Hrein Snilld",
-			description:
-				"Refactored the website to use Prismic CMS and designed promotional content for multiple marketing campaigns.",
-		},
-		{
-			title: "Hér & Nú",
-			description:
-				"Handled the setup for a rebranding website for the design studio Hér & Nú.",
+				`My BSc thesis project at Reykjavík University.
+
+A full-stack writing analysis system for students and teachers, built around keystroke data, progress tracking, and document analysis.`,
 		},
 		{
 			title: "BBA // Fjeldco",
 			description:
-				`Handled various changes on their main website.
+				`Handled various changes across their main website, often on tight timelines.
 
-Creation of new subpages and changes to existing ones.`,
+Built out new subpages and updated existing ones, regularly blending custom code with the existing Webflow setup to meet specific design requirements.`,
+		},
+		{
+			title: "Hrein Snilld",
+			description:
+				"Refactored the site over to Prismic CMS and designed promotional material for their marketing campaigns.",
+		},
+		{
+			title: "Hér & Nú",
+			description:
+				`Handled the setup of a rebranding site for the design studio Hér & Nú.
+
+Close collaboration with their designers to make sure every detail matched the vision. Particular attention paid to responsive behaviour across all screen sizes.`,
 		},
 	],
 };
@@ -447,9 +475,9 @@ export const EDUCATION: Record<string, EducationSection> = {
 };
 
 const HOBBY_PROJECT_SHARED = [
-	{ tags: ["Python", "OBS", "Twitch", "OpenAI", "ElevenLabs"], colors: ["#FFFFFF", "#BE27F5"], logo: "/twitch_logo.png" },
-	{ tags: ["Next.js", "Riot", "JavaScript", "Vercel"], colors: ["#FFFFFF", "#00ffec"], logo: "/lol_logo.png" },
-	{ tags: ["Next.js", "OSRS", "JavaScript", "Vercel"], colors: ["#FFFFFF", "#ffa400"], logo: "/osrs_logo.png" },
+	{ tags: ["Python", "OBS", "Twitch", "OpenAI", "ElevenLabs"], colors: ["#FFFFFF", "#BE27F5"], logo: "/twitch_logo.png", repo: "https://github.com/Arnfinnur21/elevenlabstwitchbot" },
+	{ tags: ["Next.js", "Riot", "JavaScript", "Vercel"], colors: ["#FFFFFF", "#00ffec"], logo: "/lol_logo.png", repo: "https://github.com/Arnfinnur21/lolbois" },
+	{ tags: ["Next.js", "OSRS", "JavaScript", "Vercel"], colors: ["#FFFFFF", "#ffa400"], logo: "/osrs_logo.png", repo: "https://github.com/Arnfinnur21/lolbois" },
 ];
 
 const HOBBY_PROJECT_TEXT = {
@@ -460,7 +488,7 @@ const HOBBY_PROJECT_TEXT = {
 
 Bottinn tekur við beiðnum frá Twitch í formi '!tts' eða '!bot' og spilar skilaboð til baka í rödd sem notandinn velur.
 
-Beiðnin er filteruð í gegnum OpenAI API'ið og ElevenLabs er notað til að spila og búa til raddirnar.
+Beiðnin er filteruð í gegnum OpenAI API'ið og ElevenLabs er notað til að búa til raddirnar.
 
 OBS Websockets og TwitchIO er notað til að meðhöndla tengingu við twitch og móttöku og sendingu skilaboða.`,
 			sidenote: `Mér hefur alltaf fundist svona AI raddir skemmtilegar og komst að því að það var einfaldara en ég hélt að setja þær upp. Síðan í kjölfarið var mjög skemmtilegt að búa til 'persónuleika' fyrir raddirnar þannig þær hljómi ekki allar eins og default GPT svör.`,
@@ -484,19 +512,31 @@ Jagex API'ið er notað til að nálgast gögn hjá völdum spilurum sem er sí�
 	],
 	ENG: [
 		{
-			title: "Project 1",
-			description: "Description of a personal project.",
-			sidenote: "Sidenote here.",
+			title: "Twitch AI Bot",
+			description: `Twitch bot for streaming, mainly built for me and my friends.
+
+Takes requests from chat using '!tts' or '!bot' and plays the message back in a voice the user picks.
+
+The request gets filtered through the OpenAI API and ElevenLabs handles generating and playing the voices.
+
+OBS Websockets and TwitchIO handle the Twitch connection and message sending/receiving.`,
+			sidenote: `I've always found these AI voices entertaining and figured setting them up would be harder than it was. After that it was really fun giving each voice its own personality so they don't all just sound like default GPT responses.`,
 		},
 		{
-			title: "Project 2",
-			description: "Description of a personal project.",
-			sidenote: "Sidenote here.",
+			title: "League Stats",
+			description: `A semi-static page showing fun stats from the last 20 games for selected players.
+
+Uses the Riot API to fetch data which then gets parsed and shaped into something readable.`,
+			sidenote: `Since this was built for a small group I had to find creative ways to get around rate limiting from too many requests.
+
+Most of the work went into going through the massive files Riot returns and mapping players to their stats.`,
 		},
 		{
-			title: "Project 3",
-			description: "Description of a personal project.",
-			sidenote: "Sidenote here.",
+			title: "RuneScape Stats",
+			description: `Pretty much the same idea as the League Stats site.
+
+Uses the Jagex API to pull data for selected players, then parses and displays it in a readable format.`,
+			sidenote: `The first personal project I built. I wanted to see mine and my friends' stats in one place. There were other tools out there but you'd have to look one person up, then open another tab for the next, and so on.`,
 		},
 	],
 };
