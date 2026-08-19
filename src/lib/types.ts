@@ -11,6 +11,8 @@ export interface Project {
 	href?: string;
 	repo?: string;
 	image?: string;
+	screenshot?: string;
+	screenshotRatio?: number; // natural height / width, used to compute a consistent pan speed
 	colors: string[];
 	logo: string;
 }

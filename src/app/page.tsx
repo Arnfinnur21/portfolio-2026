@@ -25,9 +25,9 @@ export default function Home() {
 				{/* <Contact /> */}
 				<LanguageButton />
 			</main>
-			<footer className="border-t border-zinc-100 py-8 text-center text-sm text-zinc-400 dark:border-zinc-800">
+			{/* <footer className="border-t border-zinc-100 py-8 text-center text-sm text-zinc-400 dark:border-zinc-800">
 				Scaffolded with AI (Claude) & and built by Arnfinnur Kolbeinsson
-			</footer>
+			</footer> */}
 		</>
 	);
 }
