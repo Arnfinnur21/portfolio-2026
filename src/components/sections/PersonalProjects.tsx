@@ -30,14 +30,14 @@ export default function PersonalProjects() {
 				<h2 className="mb-10 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
 					{heading}
 				</h2>
-				<div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2">
+				<div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 group">
 					{items.map((project, i) => (
 						<motion.div
 							key={i}
 							initial={{ opacity: 0, y: 20 }}
 							animate={inView ? { opacity: 1, y: 0 } : {}}
 							transition={{ delay: i * 0.1 + 0.2 }}
-							className="h-full"
+							className="h-full grayscale hover:grayscale-0 transition duration-300"
 						>
 							<BorderGlow
 								backgroundColor="#18181b"
@@ -47,7 +47,7 @@ export default function PersonalProjects() {
 								glowIntensity={0.9}
 								className="h-full"
 							>
-								<div className="flex h-full flex-col p-6 relative overflow-hidden">
+								<div className="flex h-full flex-col p-6 relative overflow-hidden group">
 									<div className="mb-3 flex items-start justify-between gap-3">
 										<h3 className="font-semibold text-zinc-50 text-lg">
 											{project.title}

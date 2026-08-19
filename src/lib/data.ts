@@ -48,7 +48,7 @@ export const HERO = {
 		greeting: "Góðan daginn, ég heiti",
 		pronounciation: "",
 		tagline:
-			"Tölvunarfræðingur með áherslu á vefþróun, notendaviðmót og stafræna upplifun",
+			"Tölvunarfræðingur með áherslu á vefþróun, notendaviðmót og efnisgerð",
 		bio: "Tæknimiðaður forritari með reynslu í bæði framenda- og bakendaforritun, hönnun og efnisgerð. Hef unnið að veflausnum og stafrænum verkefnum fyrir bæði smáa og stóra kúnna ásamt því að þróa eigin verkefni í frítíma.",
 		ctaLabel: "Sjá verkefni",
 	},
@@ -71,6 +71,7 @@ export const ABOUT = {
 			"Ég heiti Arnfinnur Kolbeinsson og er nýútskrifaður tölvunarfræðingur frá Háskólanum í Reykjavík. Ég hef lengi haft mikinn áhuga á tækni, hönnun og stafrænum lausnum.",
 			"Ég sérhæfi mig helst í vefþróun og notendaviðmótum, en hef einnig reynslu af bakendaforritun, hönnun og efnisgerð. Hef unnið að bæði eigin verkefnum og lausnum fyrir raunverulega kúnna í gegnum störf mín og freelance vinnu.",
 		],
+		image: "/ak_port.webp",
 	},
 	ENG: {
 		heading: "About Me",
@@ -78,13 +79,14 @@ export const ABOUT = {
 			"My name is Arnfinnur Kolbeinsson and I recently graduated in Computer Science from Reykjavík University. I've always been passionate about technology, design, and building digital experiences.",
 			"I mainly focus on frontend development and UI work, while also having experience with backend development, design, and digital media production. I've worked on both personal and client-facing projects through freelance work and software development roles.",
 		],
+		image: "/ak_port.webp",
 	},
 };
 
 // Shared fields that don't need translation
 const EXPERIENCE_SHARED = [
 	{ company: "Nemo Solutions", image: "/nemo_logo.svg" },
-	{ company: "ELKO", image: "/Elko_Logo_2014.png" },
+	{ company: "ELKO Þjónustuver", image: "/Elko_Logo_2014.png" },
 	{ company: "Takk Samskipti", image: "/takk_logo.png" },
 	{ company: "Domino's", image: "/dominos.png" },
 	{ company: "Sólar Gluggatjöld", image: "/solar-logo.png" },
@@ -96,8 +98,11 @@ const EXPERIENCE_TEXT = {
 		{
 			role: "Hugbúnaðarþróun",
 			period: "2022 – Núverandi",
-			description:
-				"Komið að þróun á veflausnum og innri kerfum fyrir kúnna með áherslu á framenda, notendaviðmót og nútímalega vefþróun. Unnið í litlum teymum og tekið þátt í bæði þróunar- og hönnunarákvörðunum.",
+			description: `Komið að þróun á veflausnum og innri kerfum fyrir kúnna með áherslu á framenda, notendaviðmót og nútímalega vefþróun. 
+				
+				Unnið í litlum teymum og tekið þátt í bæði þróunar- og hönnunarákvörðunum. 
+				
+				Settur í óþekkt kóðaumhverfi og fundið mína leið til að sinna verkefnum. Hef refactorað heilar síður og komið með kerfishönnunarbreytingar á margar fleiri.`,
 			tags: [
 				"React",
 				"JS/TS",
@@ -113,8 +118,11 @@ const EXPERIENCE_TEXT = {
 		{
 			role: "Þjónustufulltrúi & Vakstjóri",
 			period: "2021 – Núverandi",
-			description:
-				"Sá um tæknilega aðstoð, þjónustu við viðskiptavini og mikil samskipti við helstu flutningsaðila/birgja landsins. Aðstoðaði viðskiptavini með flóknar tæknivörur og vann í hröðu og krefjandi umhverfi.",
+			description: `Sá um tæknilega aðstoð, þjónustu við viðskiptavini og mikil samskipti við helstu flutningsaðila/birgja landsins. Hingað koma öll símtöl, tölvupóstar og spjöll inn fyrir stærstu raftækjaverslun landsins.
+
+Lært á mörg ný kerfi sem hafa verið síbreytileg og uppfærð án þess að það hefur áhrif á þjónustu.
+
+Unnið sem vaktstjóri yfir Black Friday, Singles Day og séð um eftirkaupaþjónustu eftir áramót þegar mest er um að gera í þjónustuverinu.`,
 			tags: ["Forysta", "Tækniþjónusta", "Þjónusta"],
 			older: false,
 			active: true,
@@ -147,8 +155,11 @@ const EXPERIENCE_TEXT = {
 		{
 			role: "Software Developer",
 			period: "2022 – Present",
-			description:
-				"Worked on real-world web solutions and internal tools for clients, focusing on frontend development, UI implementation, and modern web technologies. Collaborated in small teams and contributed to both development and design decisions.",
+			description: `Worked on real-world web solutions and internal tools for clients, focusing on frontend development, UI implementation, and modern web technologies.
+
+Stepped into unfamiliar codebases and found my footing quickly — refactoring entire pages and proposing system-level design changes across multiple projects.
+
+Collaborated in small teams with input on both development and design decisions.`,
 			tags: ["React", "TypeScript", "Next.js", "UI/UX"],
 			older: false,
 			active: true,
@@ -156,8 +167,11 @@ const EXPERIENCE_TEXT = {
 		{
 			role: "Customer Service & Shift Manager",
 			period: "2021 – Present",
-			description:
-				"Handled technical troubleshooting, customer support, and daily shift operations in Iceland's largest electronics retailer. Assisted customers with complex technical products while helping manage team operations in a fast-paced environment.",
+			description: `Handled technical troubleshooting, customer support, and high-volume communication in Iceland's largest electronics retailer — all calls, emails, and chats for the company flow through this team, including direct contact with major carriers and suppliers.
+
+Continuously adapted to frequently updated internal systems without disruption to service quality.
+
+Managed shift operations as shift manager through Black Friday, Singles Day, and post-holiday support surges.`,
 			tags: ["Leadership", "Technical Support", "Customer Service"],
 			older: false,
 			active: true,
@@ -210,6 +224,12 @@ export const EXPERIENCES: Record<string, ExperienceSection> = {
 // Shared fields that don't need translation
 const PROJECT_SHARED = [
 	{
+		href: "https://nfs2026.is",
+		tags: ["Webflow", "UI/UX", "CMS"],
+		colors: ["#FFFFFF", "#52ff00"],
+		logo: "/NFS_logo.png",
+	},
+	{
 		repo: "https://skemman.is/handle/1946/52014",
 		href: "",
 		tags: ["React", "TypeScript", "MongoDB", "Next.js"],
@@ -255,14 +275,31 @@ const PROJECT_SHARED = [
 const PROJECT_TEXT = {
 	ICE: [
 		{
-			title: "TypeWriter",
-			description:
-				"Lokaverkefnið mitt fyrir BSc gráðuna mína í Tölvunarfræði.\n \n Ritgreiningarkerfi fyrir nemendur og kennara með áherslu á ritunargögn, framvindu og greiningu skjala.",
+			title: "Ráðstefnuvefur NFS 2026",
+			description: `Static vefsíða fyrir Nordic Fertility Society ráðstefnuna 2026.
+
+Sá um uppsetningu, hýsingu, hönnun og umsjón á vefnum fyrir Senu. Setti upp CMS fyrir auðvelda uppsetningu og breytingu á efni fyrir kúnna. 
+
+Þetta er árleg ráðstefna sem Nordic Fertility Society heldur. Hingað fara einstaklingar og fyrirtæki til að skrá sig á ráðstefnuna og afla sér upplýsinga um viðburði og landið í heild sinni. Allt efnið var sett upp á aðgengilegan hátt þar sem aldursbilið er mikið og tæknikunnáttan misjöfn. 
+`,
 		},
 		{
-			title: "Ráðstefnuvefur NFS 2026",
-			description:
-				"Static vefsíða fyrir Nordic Fertility Society ráðstefnuna 2026. \n \n Sá um uppsetningu, hýsingu, hönnun og umsjón á vefnum fyrir Senu. Setti upp CMS fyrir auðvelda uppsetningu og breytingu á efni fyrir kúnna.",
+			title: "TypeWriter",
+			description: `Lokaverkefnið mitt fyrir BSc gráðuna mína í Tölvunarfræði.
+
+Ritgreiningarkerfi fyrir nemendur og kennara með áherslu á ritunargögn, framvindu og greiningu skjala.
+
+Kerfið gefur ítarlega tölfræði og sögu fyrir skrifleg verkefni unnin af nemendum. Kerfið var byggt alveg frá grunni með gagnagrunn, skýjahýsingu, aðgangsumsjón og fleiru ofan á virknina sjálfa. 
+`,
+		},
+		{
+			title: "BBA // Fjeldco",
+			description: `Sá um ýmsar breytingar á heimasíðunni.
+
+Uppsetning á nýjum undirsíðum og breytingar á núverandi síðum. Oft unnið á þröngum tímarömmum og klárað beiðnir fljótt og örugglega. 
+
+Ýmsar lausnir þar sem það þurfti að blanda saman sérsniðnum kóða við uppsetninguna. 
+`,
 		},
 		{
 			title: "Hrein Snilld",
@@ -271,40 +308,43 @@ const PROJECT_TEXT = {
 		},
 		{
 			title: "Hér & Nú",
-			description:
-				"Sá um uppsetningu á rebranding síðu hjá auglýsingastofunni Hér & Nú. \n \n Mikið af samskiptum við hönnuði til að tryggja að síðan leit út alveg eins og þau vildu.",
-		},
-		{
-			title: "BBA // Fjeldco",
-			description:
-				"Sá um ýmsar breytingar á heimasíðunni. \n \n Uppsetning á nýjum undirsíðum og breytingar á núverandi síðum",
+			description: `Sá um uppsetningu á rebranding síðu hjá auglýsingastofunni Hér & Nú.
+
+Mikið af samskiptum við hönnuði til að tryggja að síðan leit út alveg eins og þau vildu.
+
+Passa þurfti sérstaklega upp á það að síðan myndi líta vel út í öllum upplausnum. 
+`,
 		},
 	],
 	ENG: [
 		{
-			title: "TypeWriter",
-			description:
-				"A writing analytics platform built for students and teachers with features focused on writing statistics, progress tracking, and document analysis.",
+			title: "NFS 2026 Conference",
+			description: `Live production website for the Nordic Fertility Society conference 2026.
+
+Handled full setup, hosting, design, and ongoing management of the site. Set up a CMS so the client can update content themselves without needing a developer.`,
 		},
 		{
-			title: "Conference Website",
-			description:
-				"Designed and developed a modern conference website with CMS-driven content management, responsive layouts, and custom UI components.",
+			title: "TypeWriter",
+			description: `My BSc thesis project at Reykjavík University.
+
+A full-stack writing analysis system for students and teachers, built around keystroke data, progress tracking, and document analysis.`,
+		},
+		{
+			title: "BBA // Fjeldco",
+			description: `Handled various changes across their main website, often on tight timelines.
+
+Built out new subpages and updated existing ones, regularly blending custom code with the existing Webflow setup to meet specific design requirements.`,
 		},
 		{
 			title: "Hrein Snilld",
 			description:
-				"Refactored the website to use Prismic CMS and designed promotional content for multiple marketing campaigns.",
+				"Refactored the site over to Prismic CMS and designed promotional material for their marketing campaigns.",
 		},
 		{
 			title: "Hér & Nú",
-			description:
-				"Handled the setup for a rebranding website for the design studio Hér & Nú.",
-		},
-		{
-			title: "BBA // Fjeldco",
-			description:
-				"Handled various changes on their main website. \n \n Creation of new subpages and changes to existing ones",
+			description: `Handled the setup of a rebranding site for the design studio Hér & Nú.
+
+Close collaboration with their designers to make sure every detail matched the vision. Particular attention paid to responsive behaviour across all screen sizes.`,
 		},
 	],
 };
@@ -483,19 +523,31 @@ const HOBBY_PROJECT_TEXT = {
 	],
 	ENG: [
 		{
-			title: "Project 1",
-			description: "Description of a personal project.",
-			sidenote: "Sidenote here.",
+			title: "Twitch AI Bot",
+			description: `Twitch bot for streaming, mainly built for me and my friends.
+
+Takes requests from chat using '!tts' or '!bot' and plays the message back in a voice the user picks.
+
+The request gets filtered through the OpenAI API and ElevenLabs handles generating and playing the voices.
+
+OBS Websockets and TwitchIO handle the Twitch connection and message sending/receiving.`,
+			sidenote: `I've always found these AI voices entertaining and figured setting them up would be harder than it was. After that it was really fun giving each voice its own personality so they don't all just sound like default GPT responses.`,
 		},
 		{
-			title: "Project 2",
-			description: "Description of a personal project.",
-			sidenote: "Sidenote here.",
+			title: "League Stats",
+			description: `A semi-static page showing fun stats from the last 20 games for selected players.
+
+Uses the Riot API to fetch data which then gets parsed and shaped into something readable.`,
+			sidenote: `Since this was built for a small group I had to find creative ways to get around rate limiting from too many requests.
+
+Most of the work went into going through the massive files Riot returns and mapping players to their stats.`,
 		},
 		{
-			title: "Project 3",
-			description: "Description of a personal project.",
-			sidenote: "Sidenote here.",
+			title: "RuneScape Stats",
+			description: `Pretty much the same idea as the League Stats site.
+
+Uses the Jagex API to pull data for selected players, then parses and displays it in a readable format.`,
+			sidenote: `The first personal project I built. I wanted to see mine and my friends' stats in one place. There were other tools out there but you'd have to look one person up, then open another tab for the next, and so on.`,
 		},
 	],
 };
