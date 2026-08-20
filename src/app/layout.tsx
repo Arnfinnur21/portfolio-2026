@@ -8,6 +8,7 @@ import {
 import "./globals.css";
 import { LangProvider } from "@/components/ui/LangProvider";
 import { cn } from "@/lib/utils";
+import { Analytics } from "@vercel/analytics/next";
 
 const playfairDisplayHeading = Playfair_Display({
 	subsets: ["latin"],
@@ -50,6 +51,7 @@ export default function RootLayout({
 		>
 			<body className="bg-white text-zinc-900 antialiased dark:bg-zinc-950 dark:text-zinc-100 w-screen">
 				<LangProvider>{children}</LangProvider>
+				<Analytics />
 			</body>
 		</html>
 	);

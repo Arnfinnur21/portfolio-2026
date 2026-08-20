@@ -500,7 +500,8 @@ const HOBBY_PROJECT_TEXT = {
 			title: "Twitch AI Botti",
 			description:
 				"Twitch botti fyrir streymi, aðallega fyrir vini mína.\n\nBottinn tekur við beiðnum frá Twitch í formi '!tts' eða '!bot' og spilar skilaboð til baka í rödd sem notandinn velur.\n\n Beiðnin er filteruð í gegnum OpenAI API'ið og ElevenLabs er notað til að spila og búa til raddirnar.\n\nOBS Websockets og TwitchIO er notað til að meðhöndla tengingu við twitch og móttöku og sendingu skilaboða.",
-			sidenote: "Sidenote hér.",
+			sidenote:
+				"Hef lengi haft áhuga á svona AI-röddum og langaði að bæta þeim við þegar ég er að streyma. Fannst þetta bæta rosalega mikið við upplifunina og gerði mér kleift að þurfa ekki að kíkja á spjallið eins oft",
 		},
 		{
 			title: "League Tölfræði",
@@ -513,7 +514,8 @@ const HOBBY_PROJECT_TEXT = {
 			title: "RuneScape Tölfræði",
 			description:
 				"Rosalega svipuð pæling og League Tölfræðin.\n\n Jagex API'ið er notað til að nálgast gögn hjá völdum spilurum sem er síðan rennt yfir og gert lesanleg.",
-			sidenote: "Sidenote hér.",
+			sidenote:
+				"Þetta var hugmynd sem kom upp þegar við vinirnir vorum rosalega duglegir að spila Leagues í OSRS og vorum alltaf að metast á því hver væri að standa sig best. Eina tólið sem var í boði var crystalmathlabs sem bauð ekki upp á eins virkni og mig langaði í svo ég bara bjó til mína eigin.",
 		},
 	],
 	ENG: [

@@ -104,7 +104,7 @@ export default function Projects() {
 
 				{/* Desktop: tilted split panels, hover to expand */}
 				<div className="hidden w-full md:block">
-					<div ref={rowRef} className="flex h-150 w-full overflow-hidden">
+					<div ref={rowRef} className="flex h-180 w-full overflow-hidden">
 						{projects.map((project, i) => {
 							const isActive = active === i;
 							const leftSlant = i > 0;
@@ -169,13 +169,13 @@ export default function Projects() {
 											opacity: isActive ? 0.9 : 0.45,
 										}}
 									/>
-									<div className="pointer-events-none absolute inset-0 -z-10 bg-linear-to-t from-black/75 via-black/25 to-transparent" />
+									<div className="pointer-events-none absolute inset-0 -z-10 bg-linear-to-t from-black/90 via-black/50 to-black/10" />
 
-									<div className="flex flex-1 flex-col items-center justify-center px-8 pb-10 pt-16 text-center">
+									<div className="flex flex-1 flex-col items-center justify-center px-8 pb-8 pt-8 text-center">
 										<div
-											className="relative h-20 w-20 shrink-0 transition-transform duration-500"
+											className="relative h-32 w-32 shrink-0 transition-transform duration-500"
 											style={{
-												transform: isActive ? "scale(1.15) translateY(-8px)" : "scale(1)",
+												transform: isActive ? "scale(1.2) translateY(-4px)" : "scale(1)",
 												filter: isActive
 													? `drop-shadow(0 0 22px ${project.colors[1]})`
 													: "drop-shadow(0 0 0 transparent)",
@@ -184,55 +184,72 @@ export default function Projects() {
 											<Image
 												src={project.logo}
 												fill
-												sizes="80px"
+												sizes="128px"
 												alt={`${project.title} logo`}
 												className="object-contain"
 											/>
 										</div>
 
 										<div
-											className="overflow-hidden transition-all duration-500"
-											style={{
-												maxHeight: isActive ? 280 : 0,
-												opacity: isActive ? 1 : 0,
-												marginTop: isActive ? 20 : 0,
-											}}
+											className="grid w-full transition-[grid-template-rows] duration-500 ease-out"
+											style={{ gridTemplateRows: isActive ? "1fr" : "0fr" }}
 										>
-											<h3 className="font-semibold text-zinc-50">{project.title}</h3>
-											<p className="mt-2 whitespace-pre-line text-sm text-zinc-300">
-												{project.description}
-											</p>
-											<div className="mt-4 flex flex-wrap justify-center gap-2">
-												{project.tags.map((tag) => (
-													<ToolBadge key={tag} tag={tag} />
-												))}
-											</div>
-											{(project.href || project.repo) && (
-												<div className="mt-4 flex justify-center gap-4 text-sm font-medium">
-													{project.href && (
-														<a
-															href={toAbsoluteUrl(project.href)}
-															target="_blank"
-															rel="noopener noreferrer"
-															onClick={(e) => e.stopPropagation()}
-															className="text-zinc-400 transition hover:text-zinc-50"
-														>
-															Live ↗
-														</a>
-													)}
-													{project.repo && (
-														<a
-															href={toAbsoluteUrl(project.repo)}
-															target="_blank"
-															rel="noopener noreferrer"
-															onClick={(e) => e.stopPropagation()}
-															className="text-zinc-400 transition hover:text-zinc-50"
-														>
-															Details ↗
-														</a>
+											<div className="min-h-0 overflow-hidden">
+												<div
+													className="mt-3.5 rounded-xl bg-black/40 px-4 py-3 backdrop-blur-[2px] transition-opacity duration-400"
+													style={{ opacity: isActive ? 1 : 0 }}
+												>
+													<h3
+														className="font-semibold text-zinc-50"
+														style={{
+															textShadow:
+																"0 1px 1px rgba(0,0,0,1), 0 3px 6px rgba(0,0,0,0.9)",
+														}}
+													>
+														{project.title}
+													</h3>
+													<p
+														className="mx-auto mt-1.5 max-w-[75ch] whitespace-pre-line text-sm leading-snug text-zinc-300"
+														style={{
+															textShadow:
+																"0 1px 1px rgba(0,0,0,1), 0 2px 5px rgba(0,0,0,0.85)",
+														}}
+													>
+														{project.description}
+													</p>
+													<div className="mt-3 flex flex-wrap justify-center gap-2">
+														{project.tags.map((tag) => (
+															<ToolBadge key={tag} tag={tag} />
+														))}
+													</div>
+													{(project.href || project.repo) && (
+														<div className="mt-3 flex justify-center gap-4 text-sm font-medium">
+															{project.href && (
+																<a
+																	href={toAbsoluteUrl(project.href)}
+																	target="_blank"
+																	rel="noopener noreferrer"
+																	onClick={(e) => e.stopPropagation()}
+																	className="text-zinc-300 transition hover:text-zinc-50"
+																>
+																	Live ↗
+																</a>
+															)}
+															{project.repo && (
+																<a
+																	href={toAbsoluteUrl(project.repo)}
+																	target="_blank"
+																	rel="noopener noreferrer"
+																	onClick={(e) => e.stopPropagation()}
+																	className="text-zinc-300 transition hover:text-zinc-50"
+																>
+																	Details ↗
+																</a>
+															)}
+														</div>
 													)}
 												</div>
-											)}
+											</div>
 										</div>
 									</div>
 								</div>
@@ -290,11 +307,11 @@ export default function Projects() {
 										opacity: isActive ? 0.9 : 0.45,
 									}}
 								/>
-								<div className="pointer-events-none absolute inset-0 -z-10 bg-linear-to-t from-black/75 via-black/25 to-transparent" />
+								<div className="pointer-events-none absolute inset-0 -z-10 bg-linear-to-t from-black/90 via-black/50 to-black/10" />
 
 								<div className="flex flex-col items-center px-6 py-8 text-center">
 									<div
-										className="relative h-16 w-16 shrink-0 transition-transform duration-500"
+										className="relative h-24 w-24 shrink-0 transition-transform duration-500"
 										style={{
 											transform: isActive ? "scale(1.1)" : "scale(1)",
 											filter: isActive
@@ -305,55 +322,70 @@ export default function Projects() {
 										<Image
 											src={project.logo}
 											fill
-											sizes="64px"
+											sizes="96px"
 											alt={`${project.title} logo`}
 											className="object-contain"
 										/>
 									</div>
-									<h3 className="mt-3 font-semibold text-zinc-50">{project.title}</h3>
-
-									<div
-										className="w-full overflow-hidden transition-all duration-500"
+									<h3
+										className="mt-3 font-semibold text-zinc-50"
 										style={{
-											maxHeight: isActive ? 320 : 0,
-											opacity: isActive ? 1 : 0,
-											marginTop: isActive ? 12 : 0,
+											textShadow: "0 1px 1px rgba(0,0,0,1), 0 3px 6px rgba(0,0,0,0.9)",
 										}}
 									>
-										<p className="whitespace-pre-line text-sm text-zinc-300">
-											{project.description}
-										</p>
-										<div className="mt-4 flex flex-wrap justify-center gap-2">
-											{project.tags.map((tag) => (
-												<ToolBadge key={tag} tag={tag} />
-											))}
-										</div>
-										{(project.href || project.repo) && (
-											<div className="mt-4 flex justify-center gap-4 text-sm font-medium">
-												{project.href && (
-													<a
-														href={toAbsoluteUrl(project.href)}
-														target="_blank"
-														rel="noopener noreferrer"
-														onClick={(e) => e.stopPropagation()}
-														className="text-zinc-400 transition hover:text-zinc-50"
-													>
-														Live ↗
-													</a>
-												)}
-												{project.repo && (
-													<a
-														href={toAbsoluteUrl(project.repo)}
-														target="_blank"
-														rel="noopener noreferrer"
-														onClick={(e) => e.stopPropagation()}
-														className="text-zinc-400 transition hover:text-zinc-50"
-													>
-														Details ↗
-													</a>
+										{project.title}
+									</h3>
+
+									<div
+										className="grid w-full transition-[grid-template-rows] duration-500 ease-out"
+										style={{ gridTemplateRows: isActive ? "1fr" : "0fr" }}
+									>
+										<div className="min-h-0 overflow-hidden">
+											<div
+												className="mt-3 rounded-xl bg-black/40 px-4 py-3 backdrop-blur-[2px] transition-opacity duration-400"
+												style={{ opacity: isActive ? 1 : 0 }}
+											>
+												<p
+													className="mx-auto max-w-[32ch] whitespace-pre-line text-sm leading-snug text-zinc-300"
+													style={{
+														textShadow: "0 1px 1px rgba(0,0,0,1), 0 2px 5px rgba(0,0,0,0.85)",
+													}}
+												>
+													{project.description}
+												</p>
+												<div className="mt-3 flex flex-wrap justify-center gap-2">
+													{project.tags.map((tag) => (
+														<ToolBadge key={tag} tag={tag} />
+													))}
+												</div>
+												{(project.href || project.repo) && (
+													<div className="mt-3 flex justify-center gap-4 text-sm font-medium">
+														{project.href && (
+															<a
+																href={toAbsoluteUrl(project.href)}
+																target="_blank"
+																rel="noopener noreferrer"
+																onClick={(e) => e.stopPropagation()}
+																className="text-zinc-300 transition hover:text-zinc-50"
+															>
+																Live ↗
+															</a>
+														)}
+														{project.repo && (
+															<a
+																href={toAbsoluteUrl(project.repo)}
+																target="_blank"
+																rel="noopener noreferrer"
+																onClick={(e) => e.stopPropagation()}
+																className="text-zinc-300 transition hover:text-zinc-50"
+															>
+																Details ↗
+															</a>
+														)}
+													</div>
 												)}
 											</div>
-										)}
+										</div>
 									</div>
 								</div>
 							</div>

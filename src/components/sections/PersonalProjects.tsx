@@ -20,7 +20,7 @@ export default function PersonalProjects() {
 	const { heading, items } = HOBBY_PROJECTS[lang];
 
 	return (
-		<section id="personal-projects" className="mx-auto max-w-5xl px-6 py-24">
+		<section id="personal-projects" className="mx-auto max-w-7xl px-6 py-24">
 			<motion.div
 				ref={ref}
 				initial={{ opacity: 0, y: 40 }}
@@ -30,7 +30,7 @@ export default function PersonalProjects() {
 				<h2 className="mb-10 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
 					{heading}
 				</h2>
-				<div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 group">
+				<div className="grid gap-6 sm:grid-cols-1 md:grid-cols-3 group">
 					{items.map((project, i) => (
 						<motion.div
 							key={i}
