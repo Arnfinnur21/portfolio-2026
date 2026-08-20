@@ -221,13 +221,16 @@ export const EXPERIENCES: Record<string, ExperienceSection> = {
 	},
 };
 
-// Shared fields that don't need translation
+// Shared fields that don't need translation.
+// Order must stay in sync with PROJECT_TEXT below (NFS, TypeWriter, BBA, Hrein Snilld, Hér & Nú) — PROJECTS zips them by index.
 const PROJECT_SHARED = [
 	{
 		href: "https://nfs2026.is",
 		tags: ["Webflow", "UI/UX", "CMS"],
 		colors: ["#FFFFFF", "#52ff00"],
 		logo: "/NFS_logo.png",
+		screenshot: "/projects/nfs2026.jpg",
+		screenshotRatio: 3899 / 960,
 	},
 	{
 		repo: "https://skemman.is/handle/1946/52014",
@@ -239,12 +242,12 @@ const PROJECT_SHARED = [
 		screenshotRatio: 849 / 1940,
 	},
 	{
-		href: "https://nfs2026.is",
-		tags: ["Webflow", "UI/UX", "CMS"],
-		colors: ["#FFFFFF", "#52ff00"],
-		logo: "/NFS_logo.png",
-		screenshot: "/projects/nfs2026.jpg",
-		screenshotRatio: 3899 / 960,
+		href: "https://bbafjeldco.is",
+		tags: ["Webflow"],
+		colors: ["#ffd37e", "#ffa400"],
+		logo: "/BBA_logo.png",
+		screenshot: "/projects/bbafjeldco.jpg",
+		screenshotRatio: 900 / 960,
 	},
 	{
 		href: "https://hreinsnilld.is",
@@ -261,14 +264,6 @@ const PROJECT_SHARED = [
 		logo: "/HN.png",
 		screenshot: "/projects/herognu.jpg",
 		screenshotRatio: 7307 / 960,
-	},
-	{
-		href: "https://bbafjeldco.is",
-		tags: ["Webflow"],
-		colors: ["#ffd37e", "#ffa400"],
-		logo: "/BBA_logo.png",
-		screenshot: "/projects/bbafjeldco.jpg",
-		screenshotRatio: 900 / 960,
 	},
 ];
 
