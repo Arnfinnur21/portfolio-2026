@@ -292,7 +292,7 @@ Uppsetning á nýjum undirsíðum og breytingar á núverandi síðum. Oft unni�
 		{
 			title: "Hrein Snilld",
 			description:
-				"Refactoraði síðuna yfir í Prismic CMS og hannaði auglýsingaefni fyrir markaðsherferðir.",
+				"Refactoraði síðuna yfir í Prismic CMS og hannaði auglýsingaefni fyrir markaðsherferðir. Sá um hönnun fyrir ýmsar árstímabundnar útsölur. Sá um breytingu á ferli við að fá tilboð í þrif.",
 		},
 		{
 			title: "Hér & Nú",
