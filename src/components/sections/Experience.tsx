@@ -44,7 +44,7 @@ export default function Experience() {
 									{exp.period}
 								</span>
 							</div>
-							<div className="flex flex-row justify-between gap-30">
+							<div className="flex flex-col gap-4 sm:flex-row sm:justify-between sm:gap-8">
 								<p className="mt-2 whitespace-pre-line text-zinc-600 dark:text-zinc-400">
 									{exp.description}
 								</p>
@@ -52,9 +52,9 @@ export default function Experience() {
 									<Image
 										src={exp.image}
 										alt={"logo"}
-										width={80}
-										height={80}
-										className="shrink-0 object-contain"
+										width={128}
+										height={128}
+										className="h-24 w-24 shrink-0 self-center object-contain sm:h-32 sm:w-32 sm:self-start"
 									/>
 								)}
 							</div>

@@ -221,6 +221,11 @@ const Ferrofluid = ({
 	const mouseTargetRef = useRef([0, 0]);
 	const lastTimeRef = useRef(0);
 	const timeOffsetRef = useRef(timeOffset);
+	const pausedRef = useRef(paused);
+
+	useEffect(() => {
+		pausedRef.current = paused;
+	}, [paused]);
 
 	useEffect(() => {
 		const container = containerRef.current;
@@ -325,7 +330,7 @@ const Ferrofluid = ({
 			} else {
 				lastTimeRef.current = t;
 			}
-			if (!paused && programRef.current && meshRef.current) {
+			if (!pausedRef.current && programRef.current && meshRef.current) {
 				try {
 					renderer.render({ scene: meshRef.current });
 				} catch (e) {
@@ -353,6 +358,10 @@ const Ferrofluid = ({
 			callIfFn(geometryRef.current, "remove");
 			callIfFn(meshRef.current, "remove");
 			callIfFn(rendererRef.current, "destroy");
+			// ogl doesn't release the underlying WebGL context on its own, and
+			// mobile browsers cap how many contexts can exist at once — without
+			// this, scrolling past a few instances silently blanks the rest.
+			gl.getExtension("WEBGL_lose_context")?.loseContext();
 			programRef.current = null;
 			geometryRef.current = null;
 			meshRef.current = null;
@@ -360,7 +369,6 @@ const Ferrofluid = ({
 		};
 	}, [
 		dpr,
-		paused,
 		colors,
 		speed,
 		scale,

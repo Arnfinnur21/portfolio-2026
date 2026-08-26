@@ -7,6 +7,7 @@ import { useLang } from "../ui/LangProvider";
 import Image from "next/image";
 import ToolBadge from "../ui/ToolBadge";
 import BorderGlow from "../ui/BorderGlow";
+import FerrofluidBG from "../ui/FerrofluidBG";
 
 function toAbsoluteUrl(url: string) {
 	if (!url || url === "#") return url;
@@ -48,6 +49,12 @@ export default function PersonalProjects() {
 								className="h-full"
 							>
 								<div className="flex h-full flex-col p-6 relative overflow-hidden group">
+									<FerrofluidBG
+										timeOffset={5 * i}
+										colors={project.colors}
+										className="-z-30"
+									/>
+									<div className="pointer-events-none absolute inset-0 -z-20 bg-linear-to-b from-black/50 via-black/60 to-black/80" />
 									<div className="mb-3 flex items-start justify-between gap-3">
 										<h3 className="font-semibold text-zinc-50 text-lg">
 											{project.title}
