@@ -38,7 +38,6 @@ export default function Navbar() {
 					<button
 						onClick={() => setLang(lang === "ICE" ? "ENG" : "ICE")}
 						aria-label="Switch language"
-						className="absolute"
 					>
 						<Image
 							src={lang === "ICE" ? "/usa_flag.png" : "/iceland_flag.png"}

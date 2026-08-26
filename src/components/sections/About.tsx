@@ -28,18 +28,33 @@ export default function About() {
 							<p key={i}>{p}</p>
 						))}
 					</div>
-					<div
-						className="transition duration-300"
-					>
+					<div className="relative w-52 h-52 shrink-0 transition duration-300">
 						<div
-							className="relative w-52 h-52 shrink-0 overflow-hidden"
-							style={{ clipPath: "polygon(0% 0%, 72% 0%, 100% 28%, 100% 100%, 28% 100%, 0% 72%)" }}
+							className="relative w-52 h-52 overflow-hidden"
+							style={{
+								clipPath:
+									"polygon(0% 0%, 72% 0%, 100% 28%, 100% 100%, 28% 100%, 0% 72%)",
+							}}
 						>
 							<Image
 								src="/ak_port.webp"
 								fill
 								alt="Profile Image"
 								className="object-cover scale-[1.6] translate-y-8"
+							/>
+						</div>
+						<div
+							className="absolute -bottom-3 -right-3 w-20 h-20 overflow-hidden bg-black shadow-lg"
+							style={{
+								clipPath:
+									"polygon(0% 0%, 72% 0%, 100% 28%, 100% 100%, 28% 100%, 0% 72%)",
+							}}
+						>
+							<Image
+								src="/aklogo.png"
+								fill
+								alt="AK Logo"
+								className="object-contain p-2.5 invert"
 							/>
 						</div>
 					</div>
