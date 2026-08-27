@@ -1,39 +1,24 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { HERO } from "@/lib/data";
 import { useLang } from "@/components/ui/LangProvider";
 import Aurora from "../ui/Aurora";
-import React from "react";
+
+const LETTER_STAGGER = 0.045;
+const NAME_GAP = 0.15;
 
 export default function Hero() {
 	const lang = useLang();
 	const hero = HERO[lang];
-	const name = HERO.ICE.name;
-	const splittedname = name.split("");
+	const [firstName, lastName] = HERO.ICE.name.split(" ");
+	const firstNameLetters = firstName.toUpperCase().split("");
+	const lastNameLetters = lastName.toUpperCase().split("");
+	const lastNameDelay =
+		0.1 + firstNameLetters.length * LETTER_STAGGER + NAME_GAP;
 
-	const pullupVariant = {
-		initial: { y: 10, opacity: 0 },
-		animate: (i: number) => ({
-			y: 0,
-			opacity: 1,
-			transition: {
-				delay: i * 0.02,
-			},
-		}),
-	};
-	const ref = React.useRef(null);
-	const isInView = useInView(ref, { once: true });
 	return (
-		<section className="flex relative min-h-screen flex-col items-center justify-center px-6 text-center ">
-			<motion.p
-				initial={{ opacity: 0, y: 20 }}
-				animate={{ opacity: 1, y: 0 }}
-				transition={{ delay: 0.1 }}
-				className="mb-4 text-sm font-medium uppercase tracking-widest text-zinc-500 dark:text-zinc-400"
-			>
-				{hero.greeting}
-			</motion.p>
+		<section className="relative isolate flex h-screen w-screen flex-col items-center justify-center overflow-hidden px-6 text-center">
 			<div className="absolute inset-0 -z-10 w-screen left-1/2 opacity-50 hover:opacity-100 transition duration-300 -translate-x-1/2 mask-[linear-gradient(to_bottom,transparent,black_18%,black_82%,transparent)]">
 				<Aurora
 					colorStops={["#F43F5E", "#7cff67", "#5227FF"]}
@@ -41,57 +26,81 @@ export default function Hero() {
 					blend={1}
 				/>
 			</div>
-			{/* <motion.h1
-				initial={{ opacity: 0, y: 20 }}
-				animate={{ opacity: 1, y: 0 }}
-				transition={{ delay: 0.2 }}
-				className="text-5xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-7xl"
+
+			<div
+				style={{ fontFamily: "var(--font-hero-name)", fontWeight: 1 }}
+				className="pointer-events-none absolute left-3 top-3 flex select-none italic text-[10vw] leading-[0.8] tracking-tighter text-white mix-blend-difference sm:left-6 sm:top-6 sm:text-[9vw]"
 			>
-				{hero.name}
-			</motion.h1> */}
-			<div className="flex">
-				{splittedname.map((current, i) => (
-					<motion.div
+				{firstNameLetters.map((ch, i) => (
+					<motion.span
 						key={i}
-						ref={ref}
-						variants={pullupVariant}
-						initial="initial"
-						animate={isInView ? "animate" : ""}
-						custom={i}
-						className="text-5xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-7xl"
+						initial={{ opacity: 0, y: -20 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{ delay: 1 + i * LETTER_STAGGER, duration: 0.7 }}
+						className="inline-block"
 					>
-						{current == " " ? <span>&nbsp;</span> : current}
-					</motion.div>
+						{ch}
+					</motion.span>
 				))}
 			</div>
-			<motion.p
+			<div
+				style={{ fontFamily: "var(--font-hero-name)", fontWeight: 1 }}
+				className="pointer-events-none absolute bottom-3 right-3 flex select-none italic text-[10vw] leading-[0.8] tracking-tighter text-white mix-blend-difference sm:bottom-6 sm:right-6 sm:text-[9vw]"
+			>
+				{lastNameLetters.map((ch, i) => (
+					<motion.span
+						key={i}
+						initial={{ opacity: 0, y: 20 }}
+						animate={{ opacity: 1, y: 0 }}
+						transition={{
+							delay: 1 + lastNameDelay + i * LETTER_STAGGER,
+							duration: 0.4,
+						}}
+						className="inline-block"
+					>
+						{ch}
+					</motion.span>
+				))}
+			</div>
+
+			{/* <motion.p
 				initial={{ opacity: 0, y: 20 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ delay: 0.2 }}
-				className="text-2xl font-bold tracking-tight text-zinc-500 dark:text-grey-50 sm:text-2xl mt-2"
+				className="text-sm font-medium uppercase tracking-widest text-zinc-500 dark:text-zinc-400"
 			>
-				{hero?.pronounciation}
-			</motion.p>
+				{hero.greeting}
+			</motion.p> */}
+			{hero.pronounciation && (
+				<motion.p
+					initial={{ opacity: 0, y: 20 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ delay: 1.5 }}
+					className="mt-1 text-sm italic text-zinc-400 dark:text-zinc-500"
+				>
+					{hero.pronounciation}
+				</motion.p>
+			)}
 			<motion.p
 				initial={{ opacity: 0, y: 20 }}
 				animate={{ opacity: 1, y: 0 }}
-				transition={{ delay: 0.3 }}
-				className="mt-4 text-xl text-zinc-500 dark:text-zinc-400"
+				transition={{ delay: 2 }}
+				className="mt-6 max-w-2xl text-2xl font-semibold italic tracking-tight text-white mix-blend-difference sm:text-3xl"
 			>
 				{hero.tagline}
 			</motion.p>
 			<motion.p
 				initial={{ opacity: 0, y: 20 }}
 				animate={{ opacity: 1, y: 0 }}
-				transition={{ delay: 0.4 }}
-				className="mt-6 max-w-xl text-zinc-600 dark:text-zinc-400"
+				transition={{ delay: 2.1 }}
+				className="mt-6 max-w-xl text-white mix-blend-difference"
 			>
 				{hero.bio}
 			</motion.p>
-			<motion.div
+			{/* <motion.div
 				initial={{ opacity: 0, y: 20 }}
 				animate={{ opacity: 1, y: 0 }}
-				transition={{ delay: 0.5 }}
+				transition={{ delay: 0.55 }}
 				className="mt-10 flex gap-4"
 			>
 				<a
@@ -100,15 +109,7 @@ export default function Hero() {
 				>
 					{hero.ctaLabel}
 				</a>
-				{/* <a
-					href={hero.resumeHref}
-					target="_blank"
-					rel="noopener noreferrer"
-					className="rounded-full border border-zinc-300 px-6 py-3 text-sm font-semibold text-zinc-700 transition hover:border-zinc-500 dark:border-zinc-700 dark:text-zinc-300 dark:hover:border-zinc-400"
-				>
-					Resume
-				</a> */}
-			</motion.div>
+			</motion.div> */}
 		</section>
 	);
 }

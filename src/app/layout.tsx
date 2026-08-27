@@ -4,6 +4,7 @@ import {
 	Geist_Mono,
 	Noto_Sans,
 	Playfair_Display,
+	Sofia_Sans,
 } from "next/font/google";
 import "./globals.css";
 import { LangProvider } from "@/components/ui/LangProvider";
@@ -16,6 +17,12 @@ const playfairDisplayHeading = Playfair_Display({
 });
 
 const notoSans = Noto_Sans({ subsets: ["latin"], variable: "--font-sans" });
+
+const sofiaSans = Sofia_Sans({
+	subsets: ["latin"],
+	weight: "variable",
+	variable: "--font-hero-name",
+});
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -47,6 +54,7 @@ export default function RootLayout({
 				"font-sans",
 				notoSans.variable,
 				playfairDisplayHeading.variable,
+				sofiaSans.variable,
 			)}
 		>
 			<body className="bg-white text-zinc-900 antialiased dark:bg-zinc-950 dark:text-zinc-100 w-screen">

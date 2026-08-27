@@ -22,7 +22,7 @@ export default function About() {
 				<h2 className="mb-10 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
 					{about.heading}
 				</h2>
-				<div className="flex items-center justify-between">
+				<div className="flex flex-col items-center gap-8 sm:flex-row sm:justify-between sm:gap-8">
 					<div className="space-y-4 max-w-2xl text-zinc-600 dark:text-zinc-400 leading-relaxed">
 						{about.paragraphs.map((p, i) => (
 							<p key={i}>{p}</p>
@@ -44,7 +44,7 @@ export default function About() {
 							/>
 						</div>
 						<div
-							className="absolute -bottom-3 -right-3 w-20 h-20 overflow-hidden bg-black shadow-lg"
+							className="absolute -bottom-4 -right-4 h-24 w-24 overflow-hidden bg-black shadow-lg sm:h-28 sm:w-28"
 							style={{
 								clipPath:
 									"polygon(0% 0%, 72% 0%, 100% 28%, 100% 100%, 28% 100%, 0% 72%)",
