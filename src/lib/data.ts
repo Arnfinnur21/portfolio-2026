@@ -567,9 +567,10 @@ export const HOBBY_PROJECTS: Record<string, HobbyProject> = {
 };
 
 const CONTACT_SHARED = {
-	email: "your@email.com",
-	github: "",
-	linkedin: "",
+	email: "arnfinnur@nemo.com",
+	phone: "7768876",
+	github: "https://github.com/Arnfinnur21",
+	linkedin: "https://www.linkedin.com/in/arnfinnur-kolbeinsson-530523234/",
 };
 
 export const CONTACT = {
