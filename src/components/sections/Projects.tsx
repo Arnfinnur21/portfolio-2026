@@ -34,7 +34,7 @@ export default function Projects() {
 				className="flex w-full flex-col items-center"
 			>
 				<h2 className="mb-10 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
-					Recent Projects
+					{lang === "ICE" ? "Nýleg verkefni" : "Recent Projects"}
 				</h2>
 
 				{/* Desktop: tilted split panels, hover to expand */}

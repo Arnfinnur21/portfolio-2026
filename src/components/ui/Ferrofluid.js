@@ -338,10 +338,33 @@ const Ferrofluid = ({
 				}
 			}
 		};
-		rafRef.current = requestAnimationFrame(loop);
+		const startLoop = () => {
+			if (rafRef.current) return;
+			lastTimeRef.current = 0;
+			rafRef.current = requestAnimationFrame(loop);
+		};
+		const stopLoop = () => {
+			if (rafRef.current) {
+				cancelAnimationFrame(rafRef.current);
+				rafRef.current = null;
+			}
+		};
+
+		// Only run the WebGL render loop while this instance is actually
+		// on/near screen, since each instance is its own GPU context + rAF loop.
+		const io = new IntersectionObserver(
+			([entry]) => {
+				if (entry.isIntersecting) startLoop();
+				else stopLoop();
+			},
+			{ rootMargin: "200px 0px" }
+		);
+		io.observe(container);
+		ioRef.current = io;
 
 		return () => {
-			if (rafRef.current) cancelAnimationFrame(rafRef.current);
+			ioRef.current?.disconnect();
+			stopLoop();
 			if (mouseInteraction)
 				canvas.removeEventListener("pointermove", onPointerMove);
 			ro.disconnect();

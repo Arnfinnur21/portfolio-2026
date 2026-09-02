@@ -8,6 +8,7 @@ import Projects from "@/components/sections/Projects";
 import Skills from "@/components/sections/Skills";
 import Contact from "@/components/sections/Contact";
 import PersonalProjects from "@/components/sections/PersonalProjects";
+import Footer from "@/components/sections/Footer";
 import LanguageButton from "@/components/LanguageButton";
 
 export default function Home() {
@@ -25,9 +26,7 @@ export default function Home() {
 				{/* <Contact /> */}
 				<LanguageButton />
 			</main>
-			{/* <footer className="border-t border-zinc-100 py-8 text-center text-sm text-zinc-400 dark:border-zinc-800">
-				Scaffolded with AI (Claude) & and built by Arnfinnur Kolbeinsson
-			</footer> */}
+			<Footer />
 		</>
 	);
 }

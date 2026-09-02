@@ -298,8 +298,8 @@ Uppsetning á nýjum undirsíðum og breytingar á núverandi síðum. Oft unni�
 		},
 		{
 			title: "Hrein Snilld",
-			description: `Refactoraði síðuna yfir í Prismic CMS og hannaði auglýsingaefni fyrir markaðsherferðir.
-				
+			description: `Refactoraði síðuna yfir í Prismic CMS og hannaði auglýsingaefni fyrir markaðsherferðir. Sá um hönnun fyrir ýmsar árstímabundnar útsölur. Sá um breytingu á ferli við að fá tilboð í þrif.
+
 				Í fyrstu leit þetta út fyrir að vera auðvelt verkefni en ég komst fljótt að því hversu mikil vinna þetta myndi vera. Tæknilega séð þá var þetta einföld breyting en það fór mikil hugsun í það að setja upp reitina á auðskiljanlega máta svo að notendur þurfa ekkert að pæla í því hvernig efni mun líta út.`,
 		},
 		{
@@ -569,9 +569,10 @@ export const HOBBY_PROJECTS: Record<string, HobbyProject> = {
 };
 
 const CONTACT_SHARED = {
-	email: "your@email.com",
-	github: "",
-	linkedin: "",
+	email: "arnfinnur@nemo.com",
+	phone: "7768876",
+	github: "https://github.com/Arnfinnur21",
+	linkedin: "https://www.linkedin.com/in/arnfinnur-kolbeinsson-530523234/",
 };
 
 export const CONTACT = {
