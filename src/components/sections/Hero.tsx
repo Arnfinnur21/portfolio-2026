@@ -1,129 +1,132 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { HERO } from "@/lib/data";
 import { useLang } from "@/components/ui/LangProvider";
-import ColorBendsImpl from "../ui/ColorBends";
+import MaskedHeadingImpl from "@/components/ui/MaskedHeading";
+import WebThreadsImpl from "@/components/ui/WebThreads";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const ColorBends = ColorBendsImpl as any;
-
-const LETTER_STAGGER = 0.045;
-const NAME_GAP = 0.15;
+const MaskedHeading = MaskedHeadingImpl as any;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const WebThreads = WebThreadsImpl as any;
 
 export default function Hero() {
 	const lang = useLang();
 	const hero = HERO[lang];
 	const [firstName, lastName] = HERO.ICE.name.split(" ");
-	const firstNameLetters = firstName.toUpperCase().split("");
-	const lastNameLetters = lastName.toUpperCase().split("");
-	const lastNameDelay =
-		0.1 + firstNameLetters.length * LETTER_STAGGER + NAME_GAP;
+	const sectionRef = useRef<HTMLElement>(null);
+
+	const { scrollYProgress } = useScroll({
+		target: sectionRef,
+		offset: ["start start", "end start"],
+	});
+
+	const cardY = useTransform(scrollYProgress, [0, 1], [0, -110]);
+	const cardScale = useTransform(scrollYProgress, [0, 1], [1, 0.92]);
+	const cardOpacity = useTransform(scrollYProgress, [0, 0.6, 1], [1, 1, 0]);
+	const blobY = useTransform(scrollYProgress, [0, 1], [0, 160]);
+	const cueOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
 
 	return (
-		<section className="relative isolate flex h-screen w-screen flex-col items-center justify-center overflow-hidden px-6 text-center">
-			<div className="absolute inset-0 -z-20 opacity-70 transition duration-300 hover:opacity-100">
-				<ColorBends
-					rotation={90}
-					speed={0.35}
-					colors={["#00efff", "#bcbef6"]}
-					transparent
-					autoRotate={0}
-					scale={0.9}
-					frequency={1}
-					warpStrength={1}
-					mouseInfluence={0}
-					parallax={0}
-					noise={0}
-					iterations={1}
-					intensity={0.5}
-					bandWidth={11.5}
+		<section
+			ref={sectionRef}
+			className="relative flex h-screen w-screen items-center overflow-hidden px-6 sm:px-12 lg:px-24"
+		>
+			<motion.div
+				style={{ y: blobY }}
+				className="pointer-events-none absolute inset-0 -z-10"
+			>
+				<WebThreads
+					color1="#0400ff"
+					color2="#ff0000"
+					color3="#ffffff"
+					speed={0.05}
+					threadCount={7}
+					frequency={5.0}
+					spread={0.18}
+					taper={1.0}
+					position={0.5}
+					fanMode="left"
+					glow={0.02}
+					falloff={0.6}
+					thickness={1.1}
+					brightness={0.6}
+					opacity={0.19}
+					mirror={true}
+					shimmer={false}
+					grain={false}
+					grainIntensity={0.05}
+					mouseInteraction={false}
+					mouseStrength={0}
 				/>
-			</div>
+			</motion.div>
 
-			<div
-				style={{ fontFamily: "var(--font-hero-name)", fontWeight: 1 }}
-				className="pointer-events-none absolute left-3 top-3 flex select-none italic text-[10vw] leading-[0.8] tracking-tighter text-white mix-blend-difference sm:left-6 sm:top-6 sm:text-[9vw]"
-			>
-				{firstNameLetters.map((ch, i) => (
-					<motion.span
-						key={i}
-						initial={{ opacity: 0, y: -20 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ delay: 1 + i * LETTER_STAGGER, duration: 0.7 }}
-						className="inline-block"
-					>
-						{ch}
-					</motion.span>
-				))}
-			</div>
-			<div
-				style={{ fontFamily: "var(--font-hero-name)", fontWeight: 1 }}
-				className="pointer-events-none absolute bottom-3 right-3 flex select-none italic text-[10vw] leading-[0.8] tracking-tighter text-white mix-blend-difference sm:bottom-6 sm:right-6 sm:text-[9vw]"
-			>
-				{lastNameLetters.map((ch, i) => (
-					<motion.span
-						key={i}
-						initial={{ opacity: 0, y: 20 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{
-							delay: 1 + lastNameDelay + i * LETTER_STAGGER,
-							duration: 0.4,
-						}}
-						className="inline-block"
-					>
-						{ch}
-					</motion.span>
-				))}
-			</div>
-
-			{/* <motion.p
-				initial={{ opacity: 0, y: 20 }}
+			<motion.div
+				style={{ y: cardY, scale: cardScale, opacity: cardOpacity }}
+				initial={{ opacity: 0, y: 24 }}
 				animate={{ opacity: 1, y: 0 }}
-				transition={{ delay: 0.2 }}
-				className="text-sm font-medium uppercase tracking-widest text-zinc-500 dark:text-zinc-400"
+				transition={{ duration: 0.9, ease: "easeOut" }}
+				className="flex w-full flex-col items-start gap-5 text-left"
 			>
-				{hero.greeting}
-			</motion.p> */}
-			{hero.pronounciation && (
-				<motion.p
-					initial={{ opacity: 0, y: 20 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ delay: 1.5 }}
-					className="mt-1 text-sm italic text-zinc-400 dark:text-zinc-500"
-				>
-					{hero.pronounciation}
-				</motion.p>
-			)}
-			<motion.p
-				initial={{ opacity: 0, y: 20 }}
-				animate={{ opacity: 1, y: 0 }}
-				transition={{ delay: 2 }}
-				className="mt-6 max-w-2xl text-2xl font-semibold italic tracking-tight text-white mix-blend-difference sm:text-3xl"
-			>
-				{hero.tagline}
-			</motion.p>
-			<motion.p
-				initial={{ opacity: 0, y: 20 }}
-				animate={{ opacity: 1, y: 0 }}
-				transition={{ delay: 2.1 }}
-				className="mt-6 max-w-xl text-white mix-blend-difference"
-			>
-				{hero.bio}
-			</motion.p>
-			{/* <motion.div
-				initial={{ opacity: 0, y: 20 }}
-				animate={{ opacity: 1, y: 0 }}
-				transition={{ delay: 0.55 }}
-				className="mt-10 flex gap-4"
-			>
+				{hero.greeting && (
+					<p className="text-xs font-medium uppercase tracking-[0.3em] text-zinc-400">
+						{hero.greeting}
+					</p>
+				)}
+				<h1 className="font-heading flex w-full flex-col items-start">
+					<span className="block text-7xl font-normal leading-[0.85] tracking-tight text-zinc-50 sm:text-8xl md:text-9xl lg:text-[11rem]">
+						{firstName}
+					</span>
+					<MaskedHeading
+						text={lastName}
+						tag="span"
+						style={{ display: "block", width: "100%" }}
+						mediaType="image"
+						src="/MASK_BG.jpg"
+						fillScale={1.2}
+						parallax={0}
+						reveal="wipe"
+						trigger="view"
+						saturation={1.75}
+						stagger={0.13}
+						align="left"
+						weight={800}
+						tracking={-0.01}
+						lineHeight={0.95}
+						textScale={0.16}
+					/>
+				</h1>
+				{hero.pronounciation && (
+					<p className="text-sm italic text-zinc-400">
+						{hero.pronounciation}
+					</p>
+				)}
+				<p className="max-w-xl text-lg font-medium text-zinc-200 sm:text-xl">
+					{hero.tagline}
+				</p>
+				<p className="max-w-xl text-sm text-zinc-400 sm:text-base">
+					{hero.bio}
+				</p>
 				<a
 					href={hero.ctaHref}
-					className="rounded-full bg-zinc-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-zinc-700 dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-zinc-200"
+					className="mt-2 rounded-full border border-white/15 bg-white/10 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/20"
 				>
 					{hero.ctaLabel}
 				</a>
-			</motion.div> */}
+			</motion.div>
+
+			<motion.div
+				style={{ opacity: cueOpacity }}
+				className="absolute bottom-8 left-6 sm:left-12 lg:left-24"
+			>
+				<motion.span
+					animate={{ y: [0, 8, 0], opacity: [0.7, 0.2, 0.7] }}
+					transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+					className="block h-9 w-px bg-linear-to-b from-zinc-400 to-transparent"
+				/>
+			</motion.div>
 		</section>
 	);
 }

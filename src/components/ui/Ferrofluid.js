@@ -213,6 +213,7 @@ const Ferrofluid = ({
 	timeOffset = 0,
 }) => {
 	const containerRef = useRef(null);
+	const ioRef = useRef(null);
 	const rafRef = useRef(null);
 	const programRef = useRef(null);
 	const meshRef = useRef(null);
