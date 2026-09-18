@@ -5,9 +5,8 @@ import { useRef } from "react";
 import { HOBBY_PROJECTS } from "@/lib/data";
 import { useLang } from "../ui/LangProvider";
 import Image from "next/image";
+import Ferrofluid from "../ui/Ferrofluid";
 import ToolBadge from "../ui/ToolBadge";
-import BorderGlow from "../ui/BorderGlow";
-import FerrofluidBG from "../ui/FerrofluidBG";
 
 function toAbsoluteUrl(url: string) {
 	if (!url || url === "#") return url;
@@ -21,96 +20,102 @@ export default function PersonalProjects() {
 	const { heading, items } = HOBBY_PROJECTS[lang];
 
 	return (
-		<section id="personal-projects" className="mx-auto max-w-7xl px-6 py-24">
+		<section id="personal-projects" className="mx-auto py-24 w-screen">
 			<motion.div
 				ref={ref}
 				initial={{ opacity: 0, y: 40 }}
 				animate={inView ? { opacity: 1, y: 0 } : {}}
 				transition={{ duration: 0.5 }}
+				className="w-screen flex justify-center items-center flex-col"
 			>
 				<h2 className="mb-10 text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50">
 					{heading}
 				</h2>
-				<div className="grid gap-6 sm:grid-cols-1 md:grid-cols-3 group">
+				<div className="w-full">
 					{items.map((project, i) => (
 						<motion.div
 							key={i}
 							initial={{ opacity: 0, y: 20 }}
 							animate={inView ? { opacity: 1, y: 0 } : {}}
 							transition={{ delay: i * 0.1 + 0.2 }}
-							className="h-full grayscale hover:grayscale-0 transition duration-300"
+							className="group relative w-full overflow-hidden py-20 transition mask-image:radial-gradient(circle_at_center,black_80%,transparent_100%) grayscale hover:grayscale-0 duration-300"
 						>
-							<BorderGlow
-								backgroundColor="#18181b"
-								glowColor="160 80 60"
-								colors={project.colors}
-								borderRadius={12}
-								glowIntensity={0.9}
-								className="h-full"
-							>
-								<div className="flex h-full flex-col p-6 relative overflow-hidden group">
-									<FerrofluidBG
-										timeOffset={5 * i}
-										colors={project.colors}
-										className="-z-30"
-									/>
-									<div className="pointer-events-none absolute inset-0 -z-20 bg-linear-to-b from-black/50 via-black/60 to-black/80" />
-									<div className="mb-3 flex items-start justify-between gap-3">
-										<h3 className="font-semibold text-zinc-50 text-lg">
+							<div className="absolute inset-0 -z-10 w-screen left-1/2 opacity-50 group-hover:opacity-100 transition duration-300 -translate-x-1/2 mask-[linear-gradient(to_bottom,transparent,black_18%,black_82%,transparent)]">
+								{/* @ts-expect-error JS component */}
+								<Ferrofluid
+									colors={[project.colors[0], project.colors[1]]}
+									speed={0.05}
+									scale={4.5}
+									fluidity={0.15}
+									rimWidth={0.18}
+									sharpness={3.1}
+									glow={2.4}
+									flowDirection="down"
+									opacity={1}
+									mouseInteraction={false}
+									mouseStrength={0}
+									mouseRadius={0.05}
+									timeOffset={i * 42}
+								/>
+							</div>
+							{/* Centered content */}
+							<div className="mx-auto max-w-4xl px-6">
+								<div className="flex justify-between">
+									<div className="max-w-xl">
+										<h3 className="font-semibold text-zinc-900 dark:text-zinc-50">
 											{project.title}
 										</h3>
-										{project.logo && (
-											<div className="absolute h-50 w-50 -top-5 -right-5 shrink-0 -z-3 opacity-20">
-												<Image
-													src={project.logo}
-													fill
-													alt={`${project.title} logo`}
-													className="object-contain"
-												/>
-											</div>
-										)}
-									</div>
-									<p className="whitespace-pre-line text-md text-zinc-200 mr-30 mt-5">
-										{project.description}
-									</p>
-									<div className="mt-auto">
+										<p className="mt-2 whitespace-pre-line text-sm text-zinc-600 dark:text-zinc-400">
+											{project.description}
+										</p>
 										{project.sidenote && (
-											<p className="mt-3 whitespace-pre-line text-sm italic text-zinc-300">
+											<p className="mt-2 whitespace-pre-line text-sm italic text-zinc-500 dark:text-zinc-500">
 												"{project.sidenote}"
 											</p>
 										)}
-										<div className="mt-4 flex flex-wrap gap-2">
-											{project.tags.map((tag) => (
-												<ToolBadge key={tag} tag={tag} />
-											))}
-										</div>
 									</div>
-									{(project.href || project.repo) && (
-										<div className="mt-4 flex gap-4 text-sm font-medium">
-											{project.href && (
-												<a
-													href={toAbsoluteUrl(project.href)}
-													target="_blank"
-													rel="noopener noreferrer"
-													className="text-zinc-500 transition hover:text-zinc-50"
-												>
-													Live ↗
-												</a>
-											)}
-											{project.repo && (
-												<a
-													href={toAbsoluteUrl(project.repo)}
-													target="_blank"
-													rel="noopener noreferrer"
-													className="text-zinc-500 transition hover:text-zinc-50"
-												>
-													GitHub ↗
-												</a>
-											)}
+									{project.logo && (
+										<div
+											className="relative w-38 h-38 shrink-0 transition duration-300 hover:filter-[drop-shadow(0_0_16px_var(--glow-color))]"
+											style={{ "--glow-color": project.colors[1] } as React.CSSProperties}
+										>
+											<Image
+												src={project.logo}
+												fill
+												alt="logo"
+												className="object-contain"
+											/>
 										</div>
 									)}
 								</div>
-							</BorderGlow>
+								<div className="mt-4 flex flex-wrap gap-2">
+									{project.tags.map((tag) => (
+										<ToolBadge key={tag} tag={tag} />
+									))}
+								</div>
+								<div className="mt-4 flex gap-4 text-sm font-medium">
+									{project.href && (
+										<a
+											href={toAbsoluteUrl(project.href)}
+											target="_blank"
+											rel="noopener noreferrer"
+											className="text-zinc-500 transition hover:text-zinc-900 dark:hover:text-zinc-50"
+										>
+											Live ↗
+										</a>
+									)}
+									{project.repo && (
+										<a
+											href={toAbsoluteUrl(project.repo)}
+											target="_blank"
+											rel="noopener noreferrer"
+											className="text-zinc-500 transition hover:text-zinc-900 dark:hover:text-zinc-50"
+										>
+											GitHub ↗
+										</a>
+									)}
+								</div>
+							</div>
 						</motion.div>
 					))}
 				</div>

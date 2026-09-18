@@ -298,9 +298,8 @@ Uppsetning á nýjum undirsíðum og breytingar á núverandi síðum. Oft unni�
 		},
 		{
 			title: "Hrein Snilld",
-			description: `Refactoraði síðuna yfir í Prismic CMS og hannaði auglýsingaefni fyrir markaðsherferðir. Sá um hönnun fyrir ýmsar árstímabundnar útsölur. Sá um breytingu á ferli við að fá tilboð í þrif.
-
-				Í fyrstu leit þetta út fyrir að vera auðvelt verkefni en ég komst fljótt að því hversu mikil vinna þetta myndi vera. Tæknilega séð þá var þetta einföld breyting en það fór mikil hugsun í það að setja upp reitina á auðskiljanlega máta svo að notendur þurfa ekkert að pæla í því hvernig efni mun líta út.`,
+			description:
+				"Refactoraði síðuna yfir í Prismic CMS og hannaði auglýsingaefni fyrir markaðsherferðir. Sá um hönnun fyrir ýmsar árstímabundnar útsölur. Sá um breytingu á ferli við að fá tilboð í þrif.",
 		},
 		{
 			title: "Hér & Nú",
@@ -333,9 +332,8 @@ Built out new subpages and updated existing ones, regularly blending custom code
 		},
 		{
 			title: "Hrein Snilld",
-			description: `Refactored the site over to Prismic CMS and designed promotional material for their marketing campaigns.
-			
-			Applying these changes turned out to be a lot more difficult than I thought and taught me a lot about how differently you can set up fields so they can be accessible for users editing data.`,
+			description:
+				"Refactored the site over to Prismic CMS and designed promotional material for their marketing campaigns.",
 		},
 		{
 			title: "Hér & Nú",
