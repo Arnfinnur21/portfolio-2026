@@ -70,11 +70,11 @@ export default function Hero() {
 				transition={{ duration: 0.9, ease: "easeOut" }}
 				className="flex w-full flex-col items-start gap-5 text-left"
 			>
-				{hero.greeting && (
+				{/* {hero.greeting && (
 					<p className="text-xs font-medium uppercase tracking-[0.3em] text-zinc-400">
 						{hero.greeting}
 					</p>
-				)}
+				)} */}
 				<h1 className="font-heading flex w-full flex-col items-start">
 					<span className="block text-7xl font-normal leading-[0.85] tracking-tight text-zinc-50 sm:text-8xl md:text-9xl lg:text-[11rem]">
 						{firstName}
@@ -99,16 +99,12 @@ export default function Hero() {
 					/>
 				</h1>
 				{hero.pronounciation && (
-					<p className="text-sm italic text-zinc-400">
-						{hero.pronounciation}
-					</p>
+					<p className="text-sm italic text-zinc-400">{hero.pronounciation}</p>
 				)}
 				<p className="max-w-xl text-lg font-medium text-zinc-200 sm:text-xl">
 					{hero.tagline}
 				</p>
-				<p className="max-w-xl text-sm text-zinc-400 sm:text-base">
-					{hero.bio}
-				</p>
+				<p className="max-w-xl text-sm text-zinc-400 sm:text-base">{hero.bio}</p>
 				<a
 					href={hero.ctaHref}
 					className="mt-2 rounded-full border border-white/15 bg-white/10 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/20"
