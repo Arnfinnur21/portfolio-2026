@@ -38,7 +38,7 @@ export default function PersonalProjects() {
 							initial={{ opacity: 0, y: 20 }}
 							animate={inView ? { opacity: 1, y: 0 } : {}}
 							transition={{ delay: i * 0.1 + 0.2 }}
-							className="group relative w-full overflow-hidden py-20 transition mask-image:radial-gradient(circle_at_center,black_80%,transparent_100%) grayscale hover:grayscale-0 duration-300"
+							className="group relative w-full overflow-hidden py-20 transition mask-image:radial-gradient(circle_at_center,black_80%,transparent_100%) sm:grayscale sm:hover:grayscale-0 duration-300"
 						>
 							<div className="absolute inset-0 -z-10 w-screen left-1/2 opacity-50 group-hover:opacity-100 transition duration-300 -translate-x-1/2 mask-[linear-gradient(to_bottom,transparent,black_18%,black_82%,transparent)]">
 								{/* @ts-expect-error JS component */}
