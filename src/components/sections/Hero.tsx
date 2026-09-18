@@ -89,7 +89,7 @@ export default function Hero() {
 						parallax={0}
 						reveal="wipe"
 						trigger="view"
-						saturation={1.75}
+						saturation={3.5}
 						stagger={0.13}
 						align="left"
 						weight={800}
