@@ -222,7 +222,18 @@ const Ferrofluid = ({
 	const lastTimeRef = useRef(0);
 	const timeOffsetRef = useRef(timeOffset);
 	const ioRef = useRef(null);
+	const settingsRef = useRef({ paused, mouseInteraction, mouseDampening });
+	useEffect(() => {
+		settingsRef.current.paused = paused;
+		settingsRef.current.mouseInteraction = mouseInteraction;
+		settingsRef.current.mouseDampening = mouseDampening;
+	}, [paused, mouseInteraction, mouseDampening]);
 
+	// Mount once: creating a WebGL context is expensive and each card on the
+	// page owns its own context, so this must not re-run on every prop change
+	// (e.g. a fresh `colors` array from the caller on each re-render) or the
+	// browser's WebGL context limit gets exhausted, evicting older contexts
+	// elsewhere on the page (like the Hero background).
 	useEffect(() => {
 		const container = containerRef.current;
 		if (!container) return;
@@ -296,27 +307,27 @@ const Ferrofluid = ({
 		ro.observe(container);
 
 		const onPointerMove = (e) => {
+			if (!settingsRef.current.mouseInteraction) return;
 			const rect = canvas.getBoundingClientRect();
 			const sc = renderer.dpr || 1;
 			const x = (e.clientX - rect.left) * sc;
 			const y = (rect.height - (e.clientY - rect.top)) * sc;
 			mouseTargetRef.current = [x, y];
-			if (mouseDampening <= 0) {
+			if (settingsRef.current.mouseDampening <= 0) {
 				uniforms.iMouse.value = [x, y];
 			}
 		};
-		if (mouseInteraction) {
-			canvas.addEventListener("pointermove", onPointerMove);
-		}
+		canvas.addEventListener("pointermove", onPointerMove);
 
 		const loop = (t) => {
 			rafRef.current = requestAnimationFrame(loop);
 			uniforms.iTime.value = t * 0.001 + timeOffsetRef.current;
-			if (mouseDampening > 0) {
+			const dampening = settingsRef.current.mouseDampening;
+			if (dampening > 0) {
 				if (!lastTimeRef.current) lastTimeRef.current = t;
 				const dt = (t - lastTimeRef.current) / 1000;
 				lastTimeRef.current = t;
-				const tau = Math.max(1e-4, mouseDampening);
+				const tau = Math.max(1e-4, dampening);
 				let factor = 1 - Math.exp(-dt / tau);
 				if (factor > 1) factor = 1;
 				const target = mouseTargetRef.current;
@@ -326,7 +337,7 @@ const Ferrofluid = ({
 			} else {
 				lastTimeRef.current = t;
 			}
-			if (!paused && programRef.current && meshRef.current) {
+			if (!settingsRef.current.paused && programRef.current && meshRef.current) {
 				try {
 					renderer.render({ scene: meshRef.current });
 				} catch (e) {
@@ -361,8 +372,7 @@ const Ferrofluid = ({
 		return () => {
 			ioRef.current?.disconnect();
 			stopLoop();
-			if (mouseInteraction)
-				canvas.removeEventListener("pointermove", onPointerMove);
+			canvas.removeEventListener("pointermove", onPointerMove);
 			ro.disconnect();
 			if (canvas.parentElement === container) {
 				container.removeChild(canvas);
@@ -376,15 +386,50 @@ const Ferrofluid = ({
 			callIfFn(programRef.current, "remove");
 			callIfFn(geometryRef.current, "remove");
 			callIfFn(meshRef.current, "remove");
-			callIfFn(rendererRef.current, "destroy");
+			// ogl's Renderer has no destroy() method, so the only way to
+			// actually release the underlying WebGL context (rather than
+			// leaking it until GC) is to force-lose it directly.
+			gl.getExtension("WEBGL_lose_context")?.loseContext();
 			programRef.current = null;
 			geometryRef.current = null;
 			meshRef.current = null;
 			rendererRef.current = null;
 		};
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [dpr]);
+
+	// Prop updates mutate the existing uniforms in place instead of
+	// recreating the WebGL context (see mount effect above for why).
+	useEffect(() => {
+		const program = programRef.current;
+		if (!program) return;
+		const u = program.uniforms;
+
+		const { arr, count, avg } = prepColors(colors);
+		u.uColor0.value = arr[0];
+		u.uColor1.value = arr[1];
+		u.uColor2.value = arr[2];
+		u.uColor3.value = arr[3];
+		u.uColor4.value = arr[4];
+		u.uColor5.value = arr[5];
+		u.uColor6.value = arr[6];
+		u.uColor7.value = arr[7];
+		u.uColorCount.value = count;
+		u.uMouseColor.value = avg;
+		u.uFlow.value = flowVec(flowDirection);
+		u.uSpeed.value = speed;
+		u.uScale.value = scale;
+		u.uTurbulence.value = turbulence;
+		u.uFluidity.value = fluidity;
+		u.uRimWidth.value = rimWidth;
+		u.uSharpness.value = sharpness;
+		u.uShimmer.value = shimmer;
+		u.uGlow.value = glow;
+		u.uOpacity.value = opacity;
+		u.uMouseEnabled.value = mouseInteraction ? 1 : 0;
+		u.uMouseStrength.value = mouseStrength;
+		u.uMouseRadius.value = mouseRadius;
 	}, [
-		dpr,
-		paused,
 		colors,
 		speed,
 		scale,
@@ -399,7 +444,6 @@ const Ferrofluid = ({
 		mouseInteraction,
 		mouseStrength,
 		mouseRadius,
-		mouseDampening,
 	]);
 
 	return (
