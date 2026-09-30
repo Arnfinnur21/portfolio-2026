@@ -13,7 +13,7 @@ const MaskedHeading = MaskedHeadingImpl as any;
 const WebThreads = WebThreadsImpl as any;
 
 // true: last name inverts the background (mix-blend-difference); false: image mask
-const INVERT_LAST_NAME = true;
+const INVERT_LAST_NAME = false;
 
 export default function Hero() {
 	const lang = useLang();
