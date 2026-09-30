@@ -12,6 +12,9 @@ const MaskedHeading = MaskedHeadingImpl as any;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const WebThreads = WebThreadsImpl as any;
 
+// true: last name inverts the background (mix-blend-difference); false: image mask
+const INVERT_LAST_NAME = true;
+
 export default function Hero() {
 	const lang = useLang();
 	const hero = HERO[lang];
@@ -68,7 +71,7 @@ export default function Hero() {
 				initial={{ opacity: 0, y: 24 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.9, ease: "easeOut" }}
-				className="flex w-full flex-col items-start gap-5 text-left"
+				className={`flex w-full flex-col items-start gap-5 text-left ${INVERT_LAST_NAME ? "mix-blend-difference" : ""}`}
 			>
 				{/* {hero.greeting && (
 					<p className="text-xs font-medium uppercase tracking-[0.3em] text-zinc-400">
@@ -79,24 +82,37 @@ export default function Hero() {
 					<span className="block text-7xl font-normal leading-[0.85] tracking-tight text-zinc-50 sm:text-8xl md:text-9xl lg:text-[11rem]">
 						{firstName}
 					</span>
-					<MaskedHeading
-						text={lastName}
-						tag="span"
-						style={{ display: "block", width: "100%" }}
-						mediaType="image"
-						src="/MASK_BG.jpg"
-						fillScale={1.2}
-						parallax={0}
-						reveal="wipe"
-						trigger="view"
-						saturation={3.5}
-						stagger={0.13}
-						align="left"
-						weight={800}
-						tracking={-0.01}
-						lineHeight={0.95}
-						textScale={0.16}
-					/>
+					{INVERT_LAST_NAME ? (
+						<span
+							className="block font-extrabold text-white"
+							style={{
+								fontSize: "clamp(20px, 13vw, 200px)",
+								letterSpacing: "-0.01em",
+								lineHeight: 0.95,
+							}}
+						>
+							{lastName}
+						</span>
+					) : (
+						<MaskedHeading
+							text={lastName}
+							tag="span"
+							style={{ display: "block", width: "100%" }}
+							mediaType="image"
+							src="/MASK_BG.jpg"
+							fillScale={1.2}
+							parallax={0}
+							reveal="wipe"
+							trigger="view"
+							saturation={3.5}
+							stagger={0.13}
+							align="left"
+							weight={800}
+							tracking={-0.01}
+							lineHeight={0.95}
+							textScale={0.16}
+						/>
+					)}
 				</h1>
 				{hero.pronounciation && (
 					<p className="text-sm italic text-zinc-400">{hero.pronounciation}</p>

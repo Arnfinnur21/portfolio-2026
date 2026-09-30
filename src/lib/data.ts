@@ -87,7 +87,7 @@ export const ABOUT = {
 const EXPERIENCE_SHARED = [
 	{ company: "Nemo Solutions", image: "/nemo_logo.svg" },
 	{ company: "ELKO Þjónustuver", image: "/Elko_Logo_2014.png" },
-	{ company: "Takk Samskipti", image: "/takk_logo.png" },
+	{ company: "Takk Samskipti", image: "/takk_logo.webp" },
 	{ company: "Domino's", image: "/dominos.png" },
 	{ company: "Sólar Gluggatjöld", image: "/solar-logo.png" },
 	{ company: "Þórsberg", image: "/torsberg.png" },
@@ -481,11 +481,13 @@ const HOBBY_PROJECT_SHARED = [
 		tags: ["Python", "OBS", "Twitch", "OpenAI", "ElevenLabs"],
 		colors: ["#FFFFFF", "#BE27F5"],
 		logo: "/twitch_logo.png",
+		repo: "https://github.com/Arnfinnur21/elevenlabstwitchbot",
 	},
 	{
 		tags: ["Next.js", "Riot", "JavaScript", "Vercel"],
 		colors: ["#FFFFFF", "#00ffec"],
 		logo: "/lol_logo.png",
+		repo: "https://github.com/Arnfinnur21/lolbois",
 	},
 	{
 		tags: ["Next.js", "OSRS", "JavaScript", "Vercel"],
