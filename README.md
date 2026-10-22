@@ -2,7 +2,7 @@
 
 My personal portfolio: work experience, client projects, personal projects, and education, in Icelandic and English.
 
-**Live:** https://portfolio-2026-rose-pi.vercel.app/
+**Live:** arnfinnur.is
 
 ## Stack
 
