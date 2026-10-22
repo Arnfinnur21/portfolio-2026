@@ -2,7 +2,7 @@
 
 My personal portfolio: work experience, client projects, personal projects, and education, in Icelandic and English.
 
-**Live:** [https://arnfinnur.is](arnfinnur.is)
+**Live:** [arnfinnur.is](arnfinnur.is)
 
 ## Stack
 
